@@ -1,12 +1,12 @@
 import mongoose from "mongoose";
-const {Schema} = mongoose.Schema;
+const {Schema} = mongoose;
 const meshobj = new Schema({
     name : String,
     description : String,
     height : Number,
     size : Number,
     scroll : Number,
-    node : {type:[Schema.Types.ObjectId], ref : "node"}
-},{collection : 'meshobject'});
+    node_loc : {type:Schema.Types.ObjectId, ref : "node"}
+},{collection : 'meshobj'});
 const meshobject = mongoose.model('meshobject', meshobj);
 export default meshobject;
