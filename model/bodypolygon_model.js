@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 const {Schema} = mongoose;
 const bodyPolygonSchema = new Schema ({
-    idp : Number,
     name : String,
     description : String,
     width : Number,
