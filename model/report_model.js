@@ -15,11 +15,11 @@ const damageReportSchema = new Schema({
     },
     IDAccount: {
         type: Schema.Types.ObjectId,
-        ref: 'Account', // Thay 'User' bằng tên của collection user trong MongoDB
+        ref: 'account',
     },
-    IDMaterial: {
+    IDBodyPolygon: {
         type: Schema.Types.ObjectId,
-        ref: 'BodyPolygon', // Thay 'Material' bằng tên của collection Material trong MongoDB
+        ref: 'bodypolygon',
     },
 });
 
