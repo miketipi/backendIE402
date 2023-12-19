@@ -4,7 +4,9 @@ class DamageReportController {
     async getAll(req, res) {
         try {
             console.log("Get all damage reports");
-            const reports = await DamageReport.find({});
+            const reports = await DamageReport.find({})
+                .populate('IDAccount') // Populate thông tin từ collection 'Account'
+                .populate('IDBodyPolygon'); // Populate thông tin từ collection 'BodyPolygon'
             res.json(reports);
         } catch (error) {
             console.error('Error', error);

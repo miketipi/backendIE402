@@ -21,6 +21,6 @@ const damageReportSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'bodypolygon',
     },
-});
+}, {collection : 'damagereport'});
 
 export default model('DamageReport', damageReportSchema);
