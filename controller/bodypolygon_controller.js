@@ -53,5 +53,56 @@ try{
   console.log('Error when create body Polygon', error);
 }
 }
+
+
+async addBodypolygonFromJson(req, res) {
+  try {
+    console.log('Add bodypolygon from JSON');
+    
+    const jsonData = req.body; // Assuming the JSON data is in the request body
+    const features = jsonData.features;
+
+    for (const feature of features) {
+      const {
+        properties: { "Building name": name, height, color, type },
+        geometry: { coordinates },
+      } = feature;
+
+      // Create nodes
+      const toado = [];
+      for (const coord of coordinates[0]) {
+        const newnode = new node({
+          x: coord[0],
+          y: coord[1],
+          z: coord[2],
+        });
+        await newnode.save();
+        toado.push(newnode._id);
+      }
+
+      // Create face
+      const newface = new face({ coordinates: toado });
+      await newface.save();
+
+      // Create bodypolygon
+      const newBodyPolygon = new bodypolygon({
+        name,
+        description: name, // Assuming "Building name" is used for description as well
+        height,
+        color,
+        type,
+        face: newface._id,
+      });
+
+      await newBodyPolygon.save();
+    }
+
+    res.json({ message: 'Bodypolygons added from JSON successfully' });
+  } catch (error) {
+    console.log('Error when adding body polygons from JSON', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+}
+
 }
 export default new bodypolygoncontroller();
