@@ -8,6 +8,8 @@ const bodyPolygonSchema = new Schema ({
     color : String,
     type : String,
     size : Number,
+    material : String,
+    fixday : Date,
     face : {type : Schema.Types.ObjectId, ref: 'face'},
 }, {collection : 'bodypolygon'});
 const bodypolygon = mongoose.model('bodypolygon', bodyPolygonSchema);
