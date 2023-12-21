@@ -1,0 +1,374 @@
+.index {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.index .div-3 {
+  background-color: #ffffff;
+  height: 1623px;
+  position: relative;
+  width: 1440px;
+}
+
+.index .div-register-one {
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0px 20px 20px #0000000d;
+  height: 735px;
+  left: 358px;
+  opacity: 0.61;
+  overflow: hidden;
+  position: absolute;
+  top: 188px;
+  width: 760px;
+}
+
+.index .paragraph-register {
+  height: 26px;
+  left: 255px;
+  position: absolute;
+  top: 548px;
+  width: 249px;
+}
+
+.index .p {
+  color: #121212;
+  font-family: "Outfit", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  height: 26px;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 25.6px;
+  position: absolute;
+  top: -1px;
+  white-space: nowrap;
+}
+
+.index .text-wrapper-6 {
+  color: #0000ff;
+  font-family: "Outfit", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  height: 21px;
+  left: 181px;
+  letter-spacing: 0;
+  line-height: 25.6px;
+  position: absolute;
+  top: 2px;
+  white-space: nowrap;
+  width: 68px;
+}
+
+.index .div-row {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 292px;
+  left: 110px;
+  padding: 20px 10px 647.5px;
+  position: absolute;
+  top: 204px;
+  width: 540px;
+}
+
+.index .input {
+  background-color: #ffffff;
+  border: 2px solid;
+  border-color: #ebeaea;
+  border-radius: 10px;
+  height: 60px;
+  margin-bottom: -435.5px;
+  position: relative;
+  width: 520px;
+}
+
+.index .text-wrapper-7 {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  color: #66666680;
+  display: -webkit-box;
+  font-family: "Outfit", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  height: 32px;
+  left: 20px;
+  letter-spacing: 0;
+  line-height: 32px;
+  overflow: hidden;
+  position: absolute;
+  text-overflow: ellipsis;
+  top: 12px;
+  white-space: nowrap;
+  width: 516px;
+}
+
+.index .overlap-group-wrapper {
+  height: 60px;
+  margin-bottom: -515.5px;
+  position: relative;
+  width: 520px;
+}
+
+.index .overlap-group-2 {
+  border-radius: 10px;
+  height: 60px;
+  position: relative;
+}
+
+.index .svg {
+  height: 25px;
+  left: 470px;
+  position: absolute;
+  top: 17px;
+  width: 30px;
+}
+
+.index .div-wrapper {
+  background-color: #ffffff;
+  border: 2px solid;
+  border-color: #ebeaea;
+  border-radius: 10px;
+  height: 60px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 520px;
+}
+
+.index .text-wrapper-8 {
+  color: #0000ff;
+  font-family: "Outfit", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 32px;
+  margin-bottom: -567.5px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.index .button-thm-btn {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 13px 24px #e5332a4c;
+  height: 60px;
+  margin-bottom: -647.5px;
+  overflow: hidden;
+  position: relative;
+  width: 198.49px;
+}
+
+.index .overlap-2 {
+  height: 150px;
+  left: -50px;
+  position: relative;
+  top: -90px;
+  width: 298px;
+}
+
+.index .div-4 {
+  background: linear-gradient(180deg, rgb(255, 160, 101) 0%, rgb(255, 90, 116) 100%);
+  border-radius: 50px 50px 0px 0px;
+  height: 90px;
+  left: 0;
+  position: absolute;
+  top: 60px;
+  width: 298px;
+}
+
+.index .div-5 {
+  background-color: #121212;
+  border-radius: 0px 0px 50px 50px;
+  height: 90px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 298px;
+}
+
+.index .span-2 {
+  height: 32px;
+  left: 105px;
+  position: absolute;
+  top: 104px;
+  width: 87px;
+}
+
+.index .overlap-group-3 {
+  height: 32px;
+  left: -24px;
+  position: relative;
+  width: 111px;
+}
+
+.index .svg-2 {
+  height: 12px;
+  left: 91px;
+  position: absolute;
+  top: 11px;
+  width: 20px;
+}
+
+.index .text-wrapper-9 {
+  color: #ffffff;
+  font-family: "Outfit", Helvetica;
+  font-size: 16.2px;
+  font-weight: 900;
+  height: 32px;
+  left: 0;
+  letter-spacing: 0.18px;
+  line-height: 32px;
+  position: absolute;
+  top: 0;
+  width: 100px;
+}
+
+.index .paragraph-register-2 {
+  height: 64px;
+  left: 219px;
+  position: absolute;
+  top: 127px;
+  width: 359px;
+}
+
+.index .text-wrapper-10 {
+  color: #000000;
+  font-family: "Outfit", Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  height: 32px;
+  left: 58px;
+  letter-spacing: 0;
+  line-height: 32px;
+  position: absolute;
+  top: 31px;
+  white-space: nowrap;
+}
+
+.index .text-wrapper-11 {
+  color: #000000;
+  font-family: "Outfit", Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  height: 32px;
+  left: -34px;
+  letter-spacing: 0;
+  line-height: 32px;
+  position: absolute;
+  top: -9px;
+  white-space: nowrap;
+}
+
+.index .text-wrapper-12 {
+  color: #121212;
+  font-family: "Outfit", Helvetica;
+  font-size: 34.9px;
+  font-weight: 700;
+  height: 46px;
+  left: 292px;
+  letter-spacing: 0;
+  line-height: 45.6px;
+  position: absolute;
+  top: 52px;
+  white-space: nowrap;
+}
+
+.index .overlap-3 {
+  height: 80px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1440px;
+}
+
+.index .design-component-instance-node-4 {
+  left: 0 !important;
+  position: absolute !important;
+  top: 0 !important;
+}
+
+.index .desktop-horizontal-logo-left-not-logged-menu-right-button-right {
+  display: flex !important;
+  justify-content: flex-end !important;
+  margin-left: -88px !important;
+  width: 908px !important;
+}
+
+.index .menu-item-8 {
+  left: 378px !important;
+  position: absolute !important;
+  top: 16px !important;
+}
+
+.index .menu-item-9 {
+  font-family: "Outfit", Helvetica !important;
+  font-size: 16px !important;
+  font-style: unset !important;
+  font-weight: 500 !important;
+  letter-spacing: 0 !important;
+  line-height: 16px !important;
+}
+
+.index .overlap-4 {
+  height: 578px;
+  left: 0;
+  position: absolute;
+  top: 1045px;
+  width: 1440px;
+}
+
+.index .text-wrapper-13 {
+  color: #ebeef1;
+  font-family: "Outfit", Helvetica;
+  font-size: 24px;
+  font-weight: 700;
+  left: 80px;
+  letter-spacing: 0;
+  line-height: 26.4px;
+  position: absolute;
+  top: 58px;
+  white-space: nowrap;
+}
+
+.index .form-1-field-button-wrapper {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+  left: 309px;
+  position: absolute;
+  top: 48px;
+  width: 1051px;
+}
+
+.index .form-1-field-button-instance {
+  flex: 0 0 auto !important;
+}
+
+.index .form-field-button-2 {
+  flex: unset !important;
+  font-family: "Outfit", Helvetica !important;
+  font-size: 16px !important;
+  font-style: unset !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+  line-height: 22.4px !important;
+  white-space: nowrap !important;
+  width: fit-content !important;
+}
+
+.index .form-field-button-3 {
+  font-family: "Outfit", Helvetica !important;
+  font-size: 16px !important;
+  font-style: unset !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.5px !important;
+  line-height: 16px !important;
+}
