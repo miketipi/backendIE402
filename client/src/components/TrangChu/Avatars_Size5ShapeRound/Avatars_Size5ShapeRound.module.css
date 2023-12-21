@@ -1,0 +1,13 @@
+.root {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  outline: solid 0.5px #8f8f8f;
+  outline-offset: 0px;
+  border-radius: 1000px;
+  background-color: #e4e4e4;
+  background-image:/* webpackIgnore: true */ url('/assets/size5ShapeRound.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
