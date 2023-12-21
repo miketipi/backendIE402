@@ -1,13 +1,13 @@
 import { memo } from 'react';
 import type { FC, ReactNode } from 'react';
 
-import resets from '../../_resets.module.css';
-import { _menu_TypeInlineOnlineStoreFal } from '../_menu_TypeInlineOnlineStoreFal/_menu_TypeInlineOnlineStoreFal';
-import { Button_StyleFilledSizeMBrand } from '../Button_StyleFilledSizeMBrand/Button_StyleFilledSizeMBrand';
-import { Logo_NameHeaderLogo } from '../Logo_NameHeaderLogo/Logo_NameHeaderLogo';
-import classes from './DesktopHorizontalLogoLeftNotLo.module.css';
+import resets from '../_resets.module.css';
+import { _menu_TypeInlineOnlineStoreFal } from '../TrangChu/_menu_TypeInlineOnlineStoreFal/_menu_TypeInlineOnlineStoreFal';
+import { Button_StyleFilledSizeMBrand } from '../TrangChu/Button_StyleFilledSizeMBrand/Button_StyleFilledSizeMBrand';
+import { Logo_NameHeaderLogo } from '../TrangChu/Logo_NameHeaderLogo/Logo_NameHeaderLogo';
+import classes from './Header.module.css';
 
-interface Props {
+interface Props { 
   className?: string;
   classes?: {
     root?: string;
@@ -43,7 +43,7 @@ interface Props {
   };
 }
 /* @figmaId 2:2059 */
-export const DesktopHorizontalLogoLeftNotLo: FC<Props> = memo(function DesktopHorizontalLogoLeftNotLo(props = {}) {
+export const Header: FC<Props> = memo(function Header(props = {}) {
   return (
     <button
       className={`${resets.storybrainResets} ${props.classes?.root || ''} ${props.className || ''} ${classes.root}`}

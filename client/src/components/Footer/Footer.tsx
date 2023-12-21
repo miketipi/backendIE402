@@ -1,18 +1,18 @@
 import { memo } from 'react';
 import type { FC, ReactNode } from 'react';
 
-import resets from '../../_resets.module.css';
-import { _menu_TypeInlineOnlineStoreFal } from '../_menu_TypeInlineOnlineStoreFal/_menu_TypeInlineOnlineStoreFal';
-import { Button_StyleFilledSizeMBrandAp } from '../Button_StyleFilledSizeMBrandAp/Button_StyleFilledSizeMBrandAp';
-import { Button_StyleOutlineSizeMBrandG } from '../Button_StyleOutlineSizeMBrandG/Button_StyleOutlineSizeMBrandG';
-import { Form1FieldButton } from '../Form1FieldButton/Form1FieldButton';
-import { IconJamIconsOutlineLogosFacebo } from '../IconJamIconsOutlineLogosFacebo/IconJamIconsOutlineLogosFacebo';
-import { IconJamIconsOutlineLogosInstag } from '../IconJamIconsOutlineLogosInstag/IconJamIconsOutlineLogosInstag';
-import { IconJamIconsOutlineLogosLinked } from '../IconJamIconsOutlineLogosLinked/IconJamIconsOutlineLogosLinked';
-import { IconJamIconsOutlineLogosTwitte } from '../IconJamIconsOutlineLogosTwitte/IconJamIconsOutlineLogosTwitte';
-import { IconJamIconsOutlineLogosYoutub } from '../IconJamIconsOutlineLogosYoutub/IconJamIconsOutlineLogosYoutub';
-import { Logo_NameFooterLogo } from '../Logo_NameFooterLogo/Logo_NameFooterLogo';
-import { MenuItem_VerticalFalseMenuType } from '../MenuItem_VerticalFalseMenuType/MenuItem_VerticalFalseMenuType';
+import resets from '../_resets.module.css';
+import { Form1FieldButton } from '../TrangChu/Form1FieldButton/Form1FieldButton';
+import { _menu_TypeInlineOnlineStoreFal } from '../TrangChu/_menu_TypeInlineOnlineStoreFal/_menu_TypeInlineOnlineStoreFal';
+import { Button_StyleFilledSizeMBrandAp } from '../TrangChu/Button_StyleFilledSizeMBrandAp/Button_StyleFilledSizeMBrandAp';
+import { Button_StyleOutlineSizeMBrandG } from '../TrangChu/Button_StyleOutlineSizeMBrandG/Button_StyleOutlineSizeMBrandG';
+import { IconJamIconsOutlineLogosFacebo } from '../TrangChu/IconJamIconsOutlineLogosFacebo/IconJamIconsOutlineLogosFacebo';
+import { IconJamIconsOutlineLogosInstag } from '../TrangChu/IconJamIconsOutlineLogosInstag/IconJamIconsOutlineLogosInstag';
+import { IconJamIconsOutlineLogosLinked } from '../TrangChu/IconJamIconsOutlineLogosLinked/IconJamIconsOutlineLogosLinked';
+import { IconJamIconsOutlineLogosTwitte } from '../TrangChu/IconJamIconsOutlineLogosTwitte/IconJamIconsOutlineLogosTwitte';
+import { IconJamIconsOutlineLogosYoutub } from '../TrangChu/IconJamIconsOutlineLogosYoutub/IconJamIconsOutlineLogosYoutub';
+import { Logo_NameFooterLogo } from '../TrangChu/Logo_NameFooterLogo/Logo_NameFooterLogo';
+import { MenuItem_VerticalFalseMenuType } from '../TrangChu/MenuItem_VerticalFalseMenuType/MenuItem_VerticalFalseMenuType';
 import classes from './Footer.module.css';
 import { VectorIcon2 } from './VectorIcon2.js';
 import { VectorIcon3 } from './VectorIcon3.js';
@@ -141,7 +141,7 @@ export const Footer: FC<Props> = memo(function Footer(props = {}) {
             <Form1FieldButton
               text={{
                 text: <div className={classes.text}>Enter your email to get the latest news...</div>,
-                buttonText: <div className={classes.buttonText}>Subscribe</div>,
+                buttonText: <div className={classes.buttonText}>Xác nhận</div>,
               }}
             />
           )}
@@ -305,7 +305,7 @@ export const Footer: FC<Props> = memo(function Footer(props = {}) {
               iconJamIconsOutlineLogosChevro: true,
             }}
             text={{
-              menuItem: <div className={classes.menuItem27}>Five Six</div>,
+              menuItem: <div className={classes.menuItem27}>Liên hệ</div>,
             }}
           />
           {!props.hide?.menuItem4 && (
@@ -332,7 +332,7 @@ export const Footer: FC<Props> = memo(function Footer(props = {}) {
                 iconJamIconsOutlineLogosChevro: true,
               }}
               text={{
-                menuItem: <div className={classes.menuItem31}>Column Four</div>,
+                menuItem: <div className={classes.menuItem31}>Tải về</div>,
               }}
             />
             <div className={classes.buttonsGroup}>
@@ -403,9 +403,9 @@ export const Footer: FC<Props> = memo(function Footer(props = {}) {
             menuItem3: true,
           }}
           text={{
-            menuItem: <div className={classes.menuItem35}>Eleven</div>,
-            menuItem2: <div className={classes.menuItem36}>Twelve</div>,
-            menuItem3: <div className={classes.menuItem37}>Thirteen</div>,
+            menuItem: <div className={classes.menuItem35}>Hotline</div>,
+            menuItem2: <div className={classes.menuItem36}>08152373327</div>,
+            menuItem3: <div className={classes.menuItem37}></div>,
           }}
         />
       </div>
