@@ -1,0 +1,46 @@
+.root {
+  width: min-content;
+  height: min-content;
+  align-items: flex-start;
+  gap: 4px;
+}
+.iconContainer {
+  width: 24px;
+  height: 24px;
+  overflow: visible;
+}
+.icon {
+  width: 100%;
+  height: 100%;
+}
+.text {
+  width: min-content;
+  height: min-content;
+  flex-direction: column;
+  place-content: center;
+  align-items: flex-end;
+  gap: -4px;
+}
+.webbyFrames {
+  color: #c1c7cd;
+  font-size: 24px;
+  line-height: 110%;
+  font-weight: bold;
+  font-family: Roboto, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  width: min-content;
+  height: min-content;
+  white-space: nowrap;
+  flex-direction: column;
+}
+.forFigma {
+  color: #c1c7cd;
+  font-size: 12px;
+  line-height: 140%;
+  font-family: Roboto, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  width: min-content;
+  height: min-content;
+  white-space: nowrap;
+  flex-direction: column;
+}

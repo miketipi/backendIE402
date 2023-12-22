@@ -1,0 +1,67 @@
+.root {
+  position: relative;
+  width: 184px;
+  height: 32px;
+  align-items: flex-start;
+  overflow: hidden;
+}
+.star1 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 30.1667px;
+  height: 30.1667px;
+  overflow: visible;
+}
+.icon {
+  width: 100%;
+  height: 100%;
+}
+.star3 {
+  position: absolute;
+  left: 75.4167px;
+  top: 0;
+  width: 30.1667px;
+  height: 30.1667px;
+  overflow: visible;
+}
+.icon2 {
+  width: 100%;
+  height: 100%;
+}
+.star5 {
+  position: absolute;
+  left: 150.8333px;
+  top: 0;
+  width: 30.1667px;
+  height: 30.1667px;
+  overflow: visible;
+}
+.icon3 {
+  width: 100%;
+  height: 100%;
+}
+.star2 {
+  position: absolute;
+  left: 37.7084px;
+  top: 0;
+  width: 30.1667px;
+  height: 30.1667px;
+  overflow: visible;
+}
+.icon4 {
+  width: 100%;
+  height: 100%;
+}
+.star4 {
+  position: absolute;
+  left: 113.125px;
+  top: 0;
+  width: 30.1667px;
+  height: 30.1667px;
+  overflow: visible;
+}
+.icon5 {
+  width: 100%;
+  height: 100%;
+}

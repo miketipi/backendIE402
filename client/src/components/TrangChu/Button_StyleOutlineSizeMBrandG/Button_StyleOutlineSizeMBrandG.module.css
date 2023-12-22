@@ -1,0 +1,106 @@
+.root {
+  position: relative;
+  width: 135px;
+  height: 40px;
+  align-items: flex-start;
+  overflow: hidden;
+}
+.vector {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: visible;
+}
+.icon {
+  width: 100%;
+  height: 100%;
+}
+.vector2 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: visible;
+}
+.icon2 {
+  width: 100%;
+  height: 100%;
+}
+.gETITON {
+  color: #fff;
+  font-size: 8.38px;
+  font-family: Open Sans, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  position: absolute;
+  left: 30.3704%;
+  right: 40%;
+  top: 11.5503%;
+  bottom: 60.9497%;
+  width: min-content;
+  height: min-content;
+  white-space: nowrap;
+  flex-direction: column;
+}
+.vector3 {
+  position: absolute;
+  left: 30.2763%;
+  right: 6.8%;
+  top: 42.6125%;
+  bottom: 14.9991%;
+  overflow: visible;
+}
+.icon3 {
+  width: 100%;
+  height: 100%;
+}
+.vector4 {
+  position: absolute;
+  left: 7.4593%;
+  right: 80.5111%;
+  top: 48.55%;
+  bottom: 17.8727%;
+  overflow: visible;
+}
+.icon4 {
+  width: 100%;
+  height: 100%;
+}
+.vector5 {
+  position: absolute;
+  left: 15.1778%;
+  right: 75.5593%;
+  top: 36.25%;
+  bottom: 36.15%;
+  overflow: visible;
+}
+.icon5 {
+  width: 100%;
+  height: 100%;
+}
+.vector6 {
+  position: absolute;
+  left: 7.4066%;
+  right: 84.3704%;
+  top: 23.2007%;
+  bottom: 23.1493%;
+  overflow: visible;
+}
+.icon6 {
+  width: 100%;
+  height: 100%;
+}
+.vector7 {
+  position: absolute;
+  left: 7.437%;
+  right: 80.5111%;
+  top: 17.8491%;
+  bottom: 50.0009%;
+  overflow: visible;
+}
+.icon7 {
+  width: 100%;
+  height: 100%;
+}

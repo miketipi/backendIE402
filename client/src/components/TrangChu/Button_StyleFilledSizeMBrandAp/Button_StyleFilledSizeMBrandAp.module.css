@@ -1,0 +1,19 @@
+.root {
+  position: relative;
+  width: 119.6641px;
+  height: 40px;
+  align-items: flex-start;
+  overflow: hidden;
+}
+.group {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 119.6641px;
+  height: 40.0001px;
+  overflow: visible;
+}
+.icon {
+  width: 100%;
+  height: 100%;
+}
