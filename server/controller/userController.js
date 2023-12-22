@@ -3,8 +3,8 @@ import User from '../model/user.js';
 class UserCtrl {
     async createUser(req, res) {
         try {
-            const { email, password, admin } = req.body;
-            const newUser = new User({ email, password, admin });
+            const { email, password, admin , phone, name } = req.body;
+            const newUser = new User({ email, password, admin, phone , name });
             const savedUser = await newUser.save();
             res.status(201).json(savedUser);
         } catch (error) {

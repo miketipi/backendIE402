@@ -13,11 +13,7 @@ interface Props {
 export const App: FC<Props> = memo(function App(props = {}) {
   return (
     <div className={`${resets.storybrainResets} ${classes.root}`}>
-      <TrangChu />
-      <Routes>
-        <Route path="login" element = {<LoginForm/>}/>
-      </Routes>
+      <LoginForm/>
     </div>
-
   );
 });
