@@ -6,6 +6,7 @@ import { _menu_TypeInlineOnlineStoreFal } from '../TrangChu/_menu_TypeInlineOnli
 import { Button_StyleFilledSizeMBrand } from '../TrangChu/Button_StyleFilledSizeMBrand/Button_StyleFilledSizeMBrand';
 import { Logo_NameHeaderLogo } from '../TrangChu/Logo_NameHeaderLogo/Logo_NameHeaderLogo';
 import classes from './Header.module.css';
+import { Link } from "react-router-dom";
 
 interface Props { 
   className?: string;
@@ -54,7 +55,7 @@ export const Header: FC<Props> = memo(function Header(props = {}) {
           forFigma: true,
         }}
         text={{
-          webbyFrames: props.text?.webbyFrames || <div className={classes.webbyFrames}>HOSTIE</div>,
+          webbyFrames: props.text?.webbyFrames || <div className={classes.webbyFrames}>KHÁM PHÁ LĂNG BÁC</div>,
         }}
       />
       <div className={classes.frame48}>
@@ -65,11 +66,11 @@ export const Header: FC<Props> = memo(function Header(props = {}) {
             menuItem4: props.hide?.menuItem2,
           }}
           text={{
-            menuItem: props.text?.menuItem || <div className={classes.menuItem}>Home</div>,
-            menuItem2: props.text?.menuItem2 || <div className={classes.menuItem2}>About</div>,
-            menuItem3: props.text?.menuItem3 || <div className={classes.menuItem3}>Thirteen</div>,
-            menuItem4: <div className={classes.menuItem4}>Fourteen</div>,
-            menuItem5: props.text?.menuItem4 || <div className={classes.menuItem5}>Hosting</div>,
+            menuItem: props.text?.menuItem || <div className={classes.menuItem}>Trang chủ</div>,
+            menuItem2: props.text?.menuItem2 || <div className={classes.menuItem2}>Mô hình 3D</div>,
+            menuItem3: props.text?.menuItem3 || <div className={classes.menuItem3}>Liên hệ</div>,
+            menuItem4: <div className={classes.menuItem4}></div>,
+            menuItem5: props.text?.menuItem4 || <div className={classes.menuItem5}>Báo cáo sửa chữa</div>,
           }}
         />
         <Button_StyleFilledSizeMBrand
@@ -77,7 +78,7 @@ export const Header: FC<Props> = memo(function Header(props = {}) {
             iconJamIconsOutlineLogosPlus: true,
           }}
           text={{
-            buttonText: props.text?.buttonText || <div className={classes.buttonText}>Get Started</div>,
+            buttonText: props.text?.buttonText || <div className={classes.buttonText}>Đăng nhập</div>,
           }}
         />
       </div>

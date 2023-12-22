@@ -430,19 +430,6 @@ export const TrangChu: FC<Props> = memo(function TrangChu(props = {}) {
       </div>
       <Header
         className={classes.desktopHorizontalLogoLeftNotLo}
-        hide={{
-          menuItem2: true,
-        }}
-        text={{
-          webbyFrames: (
-            <div className={classes.webbyFrames}>KHÁM PHÁ LĂNG BÁC</div>
-          ),
-          menuItem: <div className={classes.menuItem15}>Trang chủ</div>,
-          menuItem2: <div className={classes.menuItem16}>Mô hình 3D</div>,
-          menuItem3: <div className={classes.menuItem17}>Liên hệ</div>,
-          menuItem4: <div className={classes.menuItem18}>Báo cáo sửa chữa</div>,
-          buttonText: <div className={classes.buttonText2}>Đăng nhập</div>,
-        }}
       />
       <div className={classes.image7}></div>
       <div className={classes.whatSSharedHosting}>
