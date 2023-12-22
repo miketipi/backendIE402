@@ -14,12 +14,14 @@ export const LoginForm = () => {
             } else {
                 console.error("Sai email hoặc mật khẩu");
             }
-        } catch (error: any) { 
-            console.error("Error:", error.response?.data);
+        } catch (error: any) {
+            if (error.response && error.response.status === 401) {
+                console.error("Sai email hoặc mật khẩu");
+            } else {
+                console.error("Error:", error);
+            }
         }
     };
-
-
 
     return (
         <div className="index">
