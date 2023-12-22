@@ -3,8 +3,8 @@ import User from '../model/user.js';
 class UserCtrl {
     async createUser(req, res) {
         try {
-            const { username, password, admin } = req.body;
-            const newUser = new User({ username, password, admin });
+            const { email, password, admin } = req.body;
+            const newUser = new User({ email, password, admin });
             const savedUser = await newUser.save();
             res.status(201).json(savedUser);
         } catch (error) {
@@ -14,8 +14,8 @@ class UserCtrl {
 
     async loginUser(req, res) {
         try {
-            const { username, password } = req.body;
-            const user = await User.findOne({ username, password });
+            const { email, password } = req.body;
+            const user = await User.findOne({ email, password });
 
             if (!user) {
                 return res.status(401).json({ message: 'Invalid credentials' });
@@ -54,10 +54,10 @@ class UserCtrl {
     async updateUserById(req, res) {
         try {
             const userId = req.params.id;
-            const { username, password, admin } = req.body;
+            const { name, password, admin, phone, email } = req.body;
             const updatedUser = await User.findByIdAndUpdate(
                 userId,
-                { username, password, admin },
+                { name, password, admin, email, phone },
                 { new: true }
             );
 
