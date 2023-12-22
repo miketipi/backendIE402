@@ -3,12 +3,12 @@ import "./style.css";
 import axios from "axios";
 
 export const LoginForm = () => {
-    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const handleLogin = async () => {
         try {
-            const response = await axios.post("http://localhost:4000/userControl/login", { username, password });
+            const response = await axios.post("http://localhost:4000/userControl/login", { email, password });
             if (response.status === 200 && response.data.message === 'Login successful') {
                 console.log("Đăng nhập thành công");
             } else {
@@ -43,9 +43,9 @@ export const LoginForm = () => {
                             </div>
                         </button>
                         <div className="div-wrapper">
-                            <input className="input" placeholder="Mật khẩu" onChange={(e) => setPassword(e.target.value)} />
+                            <input className="input" type="password" placeholder="Mật khẩu" onChange={(e) => setPassword(e.target.value)} />
                         </div>
-                        <input className="input" placeholder="Email" onChange={(e) => setUsername(e.target.value)} />
+                        <input className="input" type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
                     </div>
                     <div className="paragraph-register-2">
                         <div className="text-wrapper-11">chỉ bằng một nút bấm</div>
