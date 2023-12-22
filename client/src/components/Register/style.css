@@ -1,0 +1,436 @@
+.index {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.index .div-3 {
+  background-color: #ffffff;
+  height: 1604px;
+  overflow: hidden;
+  position: relative;
+  width: 1440px;
+}
+
+.index .div-register-one {
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0px 20px 20px #0000000d;
+  height: 698px;
+  left: 345px;
+  opacity: 0.7;
+  overflow: hidden;
+  position: absolute;
+  top: 204px;
+  width: 760px;
+}
+
+.index .paragraph-register {
+  height: 26px;
+  left: 165px;
+  position: absolute;
+  top: 608px;
+  width: 430px;
+}
+
+.index .text-wrapper-6 {
+  color: #121212;
+  font-family: "Outfit", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  height: 26px;
+  left: 90px;
+  letter-spacing: 0;
+  line-height: 25.6px;
+  position: absolute;
+  top: -1px;
+  white-space: nowrap;
+}
+
+.index .text-wrapper-7 {
+  color: #0000ff;
+  font-family: "Outfit", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  height: 26px;
+  left: 215px;
+  letter-spacing: 0;
+  line-height: 25.6px;
+  position: absolute;
+  top: -1px;
+  width: 81px;
+}
+
+.index .b-ng-vi-c-ng-k-b-n-wrapper {
+  height: 51px;
+  left: 165px;
+  position: absolute;
+  top: 547px;
+  width: 430px;
+}
+
+.index .b-ng-vi-c-ng-k-b-n {
+  color: #666666;
+  font-family: "Outfit", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  height: 52px;
+  left: 1px;
+  letter-spacing: 0;
+  line-height: 25.6px;
+  position: absolute;
+  top: -14px;
+}
+
+.index .div-row {
+  height: 300px;
+  left: 120px;
+  position: absolute;
+  top: 224px;
+  width: 520px;
+}
+
+.index .button-thm-btn {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 13px 24px #e5332a4c;
+  height: 60px;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 240px;
+  width: 204px;
+}
+
+.index .overlap-group-2 {
+  height: 150px;
+  left: -51px;
+  position: relative;
+  top: -90px;
+  width: 306px;
+}
+
+.index .div-4 {
+  background: linear-gradient(180deg, rgb(255, 160, 101) 0%, rgb(255, 90, 116) 100%);
+  border-radius: 50px 50px 0px 0px;
+  height: 90px;
+  left: 0;
+  position: absolute;
+  top: 60px;
+  width: 306px;
+}
+
+.index .div-5 {
+  background-color: #121212;
+  border-radius: 0px 0px 50px 50px;
+  height: 90px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 306px;
+}
+
+.index .span-2 {
+  height: 32px;
+  left: 107px;
+  position: absolute;
+  top: 104px;
+  width: 93px;
+}
+
+.index .svg {
+  height: 12px;
+  left: 73px;
+  position: absolute;
+  top: 11px;
+  width: 20px;
+}
+
+.index .text-wrapper-8 {
+  color: #ffffff;
+  font-family: "Outfit", Helvetica;
+  font-size: 15.9px;
+  font-weight: 900;
+  height: 32px;
+  left: 0;
+  letter-spacing: 0.18px;
+  line-height: 32px;
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+}
+
+.index .overlap-wrapper {
+  height: 60px;
+  left: 0;
+  position: absolute;
+  top: 160px;
+  width: 520px;
+}
+
+.index .overlap-2 {
+  border-radius: 10px;
+  height: 60px;
+  position: relative;
+}
+
+.index .svg-2 {
+  height: 25px;
+  left: 470px;
+  position: absolute;
+  top: 17px;
+  width: 30px;
+}
+
+.index .input {
+  background-color: #ffffff;
+  border: 2px solid;
+  border-color: #ebeaea;
+  border-radius: 10px;
+  height: 60px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 520px;
+}
+
+.index .text-wrapper-9 {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  color: #66666680;
+  display: -webkit-box;
+  font-family: "Outfit", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  height: 32px;
+  left: 20px;
+  letter-spacing: 0;
+  line-height: 32px;
+  overflow: hidden;
+  position: absolute;
+  text-overflow: ellipsis;
+  top: 12px;
+  white-space: nowrap;
+  width: 516px;
+}
+
+.index .div-wrapper {
+  background-color: #ffffff;
+  border: 2px solid;
+  border-color: #ebeaea;
+  border-radius: 10px;
+  height: 60px;
+  left: 0;
+  position: absolute;
+  top: 80px;
+  width: 520px;
+}
+
+.index .input-2 {
+  background-color: #ffffff;
+  border: 2px solid;
+  border-color: #ebeaea;
+  border-radius: 10px;
+  height: 60px;
+  left: 270px;
+  position: absolute;
+  top: 0;
+  width: 250px;
+}
+
+.index .text-wrapper-10 {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  color: #66666680;
+  display: -webkit-box;
+  font-family: "Outfit", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  height: 32px;
+  left: 20px;
+  letter-spacing: 0;
+  line-height: 32px;
+  overflow: hidden;
+  position: absolute;
+  text-overflow: ellipsis;
+  top: 12px;
+  white-space: nowrap;
+  width: 246px;
+}
+
+.index .input-3 {
+  background-color: #ffffff;
+  border: 2px solid;
+  border-color: #ebeaea;
+  border-radius: 10px;
+  height: 60px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 250px;
+}
+
+.index .paragraph-register-2 {
+  height: 64px;
+  left: 156px;
+  position: absolute;
+  top: 119px;
+  width: 447px;
+}
+
+.index .text-wrapper-11 {
+  color: #666666;
+  font-family: "Outfit", Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  height: 32px;
+  left: 115px;
+  letter-spacing: 0;
+  line-height: 32px;
+  position: absolute;
+  top: 32px;
+  white-space: nowrap;
+}
+
+.index .p {
+  color: #666666;
+  font-family: "Outfit", Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  height: 32px;
+  left: 15px;
+  letter-spacing: 0;
+  line-height: 32px;
+  position: absolute;
+  top: 0;
+  width: 390px;
+}
+
+.index .text-wrapper-12 {
+  color: #121212;
+  font-family: "Outfit", Helvetica;
+  font-size: 34.9px;
+  font-weight: 700;
+  height: 46px;
+  left: 275px;
+  letter-spacing: 0;
+  line-height: 45.6px;
+  position: absolute;
+  top: 64px;
+  white-space: nowrap;
+}
+
+.index .regularcheckbox {
+  height: 33px !important;
+  left: 123px !important;
+  position: absolute !important;
+  top: 544px !important;
+  width: 33px !important;
+}
+
+.index .overlap-3 {
+  height: 80px;
+  left: 1px;
+  position: absolute;
+  top: 0;
+  width: 1440px;
+}
+
+.index .design-component-instance-node-4 {
+  left: 0 !important;
+  position: absolute !important;
+  top: 0 !important;
+}
+
+.index .desktop-horizontal-logo-left-not-logged-menu-right-button-right {
+  display: flex !important;
+  justify-content: flex-end !important;
+  margin-left: -88px !important;
+  width: 908px !important;
+}
+
+.index .menu-item-8 {
+  left: 383px !important;
+  position: absolute !important;
+  top: 16px !important;
+}
+
+.index .menu-item-9 {
+  font-family: "Outfit", Helvetica !important;
+  font-size: 16px !important;
+  font-style: unset !important;
+  font-weight: 500 !important;
+  letter-spacing: 0 !important;
+  line-height: 16px !important;
+}
+
+.index .overlap-4 {
+  height: 578px;
+  left: 0;
+  position: absolute;
+  top: 1026px;
+  width: 1440px;
+}
+
+.index .text-wrapper-13 {
+  color: #ebeef1;
+  font-family: "Outfit", Helvetica;
+  font-size: 24px;
+  font-weight: 700;
+  left: 81px;
+  letter-spacing: 0;
+  line-height: 26.4px;
+  position: absolute;
+  top: 58px;
+  white-space: nowrap;
+}
+
+.index .form-1-field-button-wrapper {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+  left: 310px;
+  position: absolute;
+  top: 48px;
+  width: 1051px;
+}
+
+.index .form-1-field-button-instance {
+  flex: 0 0 auto !important;
+}
+
+.index .form-field-button-2 {
+  flex: unset !important;
+  font-family: "Outfit", Helvetica !important;
+  font-size: 16px !important;
+  font-style: unset !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+  line-height: 22.4px !important;
+  white-space: nowrap !important;
+  width: fit-content !important;
+}
+
+.index .form-field-button-3 {
+  font-family: "Outfit", Helvetica !important;
+  font-size: 16px !important;
+  font-style: unset !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.5px !important;
+  line-height: 16px !important;
+}
+
+.b-ng-vi-c-ng-k-b-n-wrapper input[type="checkbox"] {
+  transform: scale(1.5); /* Make the checkbox bigger */
+  margin-top: -30px;
+  margin-left: -30px; 
+}
+
+.button-thm-btn:active {
+  background-color: #ff0000;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
