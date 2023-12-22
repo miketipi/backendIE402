@@ -422,7 +422,7 @@ export const TrangChu: FC<Props> = memo(function TrangChu(props = {}) {
           text={{
             text: (
               <div className={classes.text}>
-                Nhậo email vào để nhận được những cập nhật{" "}
+                Nhập email vào để nhận được những cập nhật{" "}
               </div>
             ),
             buttonText: <div className={classes.buttonText}>Subscribe</div>,
