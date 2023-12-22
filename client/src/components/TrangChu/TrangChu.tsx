@@ -1,14 +1,13 @@
 import { memo } from "react";
 import type { FC } from "react";
 
-//import resets from "../_resets.module.css";
 import { Avatars_Size5ShapeRound } from "./Avatars_Size5ShapeRound/Avatars_Size5ShapeRound";
 import { ButtonMain_TypePrimarySizeStan } from "./ButtonMain_TypePrimarySizeStan/ButtonMain_TypePrimarySizeStan";
 import { CarouselButtons_TypeLeftStateD } from "./CarouselButtons_TypeLeftStateD/CarouselButtons_TypeLeftStateD";
 import { CarouselButtons_TypeRightState } from "./CarouselButtons_TypeRightState/CarouselButtons_TypeRightState";
-import { DesktopHorizontalLogoLeftNotLo } from "./DesktopHorizontalLogoLeftNotLo/DesktopHorizontalLogoLeftNotLo";
+import { Header } from "../Header/Header";
 import { FAQItem_OpenFalse } from "./FAQItem_OpenFalse/FAQItem_OpenFalse";
-import { Footer } from "./Footer/Footer";
+import { Footer } from "../Footer/Footer";
 import { Form1FieldButton } from "./Form1FieldButton/Form1FieldButton";
 import { Frame10756Icon } from "./Frame10756Icon.js";
 import { MenuItem_VerticalFalseMenuType } from "./MenuItem_VerticalFalseMenuType/MenuItem_VerticalFalseMenuType";
@@ -429,7 +428,7 @@ export const TrangChu: FC<Props> = memo(function TrangChu(props = {}) {
           }}
         />
       </div>
-      <DesktopHorizontalLogoLeftNotLo
+      <Header
         className={classes.desktopHorizontalLogoLeftNotLo}
         hide={{
           menuItem2: true,
