@@ -64,7 +64,7 @@ export class bodypolygoncontroller {
       if (!deletee) {
         return res.status(400).json({ error: "Can't delete" });
       }
-      res.json({ message: 'Report deleted successfully' });
+      res.json({ message: 'BodyPolygon deleted successfully' });
     } catch (err) {
       console.log(err);
       res.status(500).json({ error: 'Internal Server Error' });
@@ -120,6 +120,12 @@ export class bodypolygoncontroller {
       res.status(500).json({ error: 'Internal server error' });
     }
   }
-
+// async update(req, res){
+//   try{
+//     const {id} = req.params;
+//     console.log('Update Body Polygon');
+//     const {coordinates, }
+//   }
+// }
 }
 export default new bodypolygoncontroller();

@@ -1,6 +1,6 @@
 import { memo } from "react";
 import type { FC } from "react";
-
+import {useNavigate} from "react-router-dom";
 import { Avatars_Size5ShapeRound } from "./Avatars_Size5ShapeRound/Avatars_Size5ShapeRound";
 import { ButtonMain_TypePrimarySizeStan } from "./ButtonMain_TypePrimarySizeStan/ButtonMain_TypePrimarySizeStan";
 import { CarouselButtons_TypeLeftStateD } from "./CarouselButtons_TypeLeftStateD/CarouselButtons_TypeLeftStateD";
@@ -121,11 +121,15 @@ interface Props {
 /* @figmaId 2:3432 */
 export const TrangChu: FC<Props> = memo(function TrangChu(props = {}) {
   const [expanded, setExpanded] = React.useState<string | false>(false);
-
+  const [user, setUser] = React.useState('');
+  const navigate = useNavigate();
   const handleChange =
     (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
       setExpanded(isExpanded ? panel : false);
     };
+    const nav = ()=>{
+      navigate("/Login");
+    }
   return (
     <div className={`${classes.root}`}>
       <div className={classes.gioiThieuVeLangBac}>Giới thiệu về Lăng Bác</div>
@@ -241,7 +245,7 @@ export const TrangChu: FC<Props> = memo(function TrangChu(props = {}) {
             </AccordionSummary>
             <AccordionDetails>
               <Typography>
-                Bạn hoàn toàn có thể đến Lăng Bác vào cuối tuần
+                Bạn hoàn toàn có thể đến Lăng Bác vào cuối tuần<br></br>
               </Typography>
             </AccordionDetails>
           </Accordion>
@@ -358,7 +362,7 @@ export const TrangChu: FC<Props> = memo(function TrangChu(props = {}) {
         <RegularButton_TypePrimarySizeL2
           className={classes.regularButton2}
           text={{
-            buttonLabel: <div className={classes.buttonLabel}>Khách sạn</div>,
+            buttonLabel: <a href="https://www.tripadvisor.com.vn/HotelsNear-g293924-d311064-Ho_Chi_Minh_Mausoleum-Hanoi.html" className={classes.buttonLabel}>Khách sạn</a>,
           }}
         />
         <RegularButton_TypePrimarySizeL2
@@ -441,7 +445,7 @@ export const TrangChu: FC<Props> = memo(function TrangChu(props = {}) {
           menuItem2: <div className={classes.menuItem16}>Mô hình 3D</div>,
           menuItem3: <div className={classes.menuItem17}>Liên hệ</div>,
           menuItem4: <div className={classes.menuItem18}>Báo cáo sửa chữa</div>,
-          buttonText: <div className={classes.buttonText2}>Đăng nhập</div>,
+          buttonText: <div onClick={nav} className={classes.buttonText2}>Đăng nhập</div>,
         }}
       />
       <div className={classes.image7}></div>
