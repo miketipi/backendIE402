@@ -28,10 +28,10 @@ export const RegisterForm = () => {
                             </div>
                         </button>
                         <div className="overlap-wrapper">
-                            <input className="input" placeholder="Mật khẩu" />
+                            <input className="input" type="password" placeholder="Mật khẩu" />
                         </div>
                         <div className="div-wrapper">
-                            <input className="input" placeholder="Email" />
+                            <input className="input" type="email" placeholder="Email" />
                         </div>
                         <input className=" input-2" placeholder="Tên" />
                         <input className=" input-3" placeholder="Họ" />

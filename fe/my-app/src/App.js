@@ -7,7 +7,7 @@ import { Route, Router,Routes } from 'react-router-dom';
 import TrangChu from './components/trangchu';
 function App() {
   const [userr,setUser] = useState(null);
-  async function login(user = null){
+  async function login(user = null){ //login({username : a, password : b})
    const username =  user.username;
    const password = user.password;
       const request = {
