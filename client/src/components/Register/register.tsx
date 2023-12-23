@@ -4,6 +4,8 @@ import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import { Footer } from "../Footer/Footer";
 import { Header } from "../Header/Header";
+import { Link } from 'react-router-dom';
+import classes from "../TrangChu/TrangChu.module.css";
 
 export const RegisterForm = () => {
     const navigate = useNavigate();
@@ -12,6 +14,10 @@ export const RegisterForm = () => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [isAgreed, setIsAgreed] = useState(false);
+
+    const nav = () => {
+        navigate("/Login");
+    }
 
     function validUserEmail(email: string) {
         let validText = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/gm;
@@ -53,14 +59,13 @@ export const RegisterForm = () => {
     }
 
     return (
-        <div>
-            {/* <Footer></Footer> */}
-            <div className="index">
+        <div className="index">
+            <div >
                 <div className="div-3">
                     <div className="div-register-one">
                         <div className="paragraph-register">
                             <div className="text-wrapper-6">Đã có tài khoản?</div>
-                            <a href="/login" className="text-wrapper-7">Đăng nhập</a>
+                            <Link to="/login" className="text-wrapper-7">Đăng nhập</Link>
                         </div>
                         <div className="b-ng-vi-c-ng-k-b-n-wrapper">
                             <p className="b-ng-vi-c-ng-k-b-n">
@@ -96,7 +101,66 @@ export const RegisterForm = () => {
                     </div>
                 </div>
             </div >
-            {/* <Header></Header> */}
+            <Header
+                className={classes.desktopHorizontalLogoLeftNotLo}
+                hide={{
+                    menuItem2: true,
+                }}
+                text={{
+                    webbyFrames: (
+                        <div className={classes.webbyFrames}>KHÁM PHÁ LĂNG BÁC</div>
+                    ),
+                    menuItem: <div className={classes.menuItem15}>Trang chủ</div>,
+                    menuItem2: <div className={classes.menuItem16}>Mô hình 3D</div>,
+                    menuItem3: <div className={classes.menuItem17}>Liên hệ</div>,
+                    menuItem4: <div className={classes.menuItem18}>Báo cáo sửa chữa</div>,
+                    buttonText: <div onClick={nav} className={classes.buttonText2}>Đăng nhập</div>,
+                }}
+            />
+
+            <Footer
+                className={classes.footer}
+                classes={{ menuItem28: classes.menuItem14 }}
+                hide={{
+                    logoContainer: true,
+                    form1FieldButton: true,
+                    menuItem4: true,
+                }}
+                text={{
+                    menuItem: <div className={classes.menuItem}>ĐỐI TÁC</div>,
+                    menuItem2: (
+                        <div className={classes.menuItem2}>Đăng ký nhà cung cấp</div>
+                    ),
+                    menuItem3: <div className={classes.menuItem3}>Đối tác đăng nhập</div>,
+                    menuItem4: <div className={classes.menuItem4}>Đối tác liên kết</div>,
+                    menuItem5: (
+                        <div className={classes.menuItem5}>
+                            Chương trình cho người nổi tiếng
+                        </div>
+                    ),
+                    menuItem6: (
+                        <div className={classes.menuItem6}>Điều khoản sử dụng</div>
+                    ),
+                    menuItem7: (
+                        <div className={classes.menuItem7}>Điều khoản sử dụng</div>
+                    ),
+                    menuItem8: (
+                        <div className={classes.menuItem8}>Chính sách bảo mật</div>
+                    ),
+                    menuItem9: (
+                        <div className={classes.menuItem9}>Chính sách và quy định</div>
+                    ),
+                    menuItem10: <div className={classes.menuItem10}>Phiếu quà tặng </div>,
+                    menuItem11: <div className={classes.menuItem11}>Về chúng tôi</div>,
+                    menuItem12: <div className={classes.menuItem12}>Về chúng tôi</div>,
+                    menuItem13: <div className={classes.menuItem13}>Blog</div>,
+                    companyName202XAllRightsReserv: (
+                        <div className={classes.companyName202XAllRightsReserv}>
+                            UIT @ 2023. All rights reserved.
+                        </div>
+                    ),
+                }}
+            />
         </div>
     );
 }
