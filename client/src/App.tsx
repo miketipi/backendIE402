@@ -6,6 +6,7 @@ import resets from './components/_resets.module.css';
 import { TrangChu } from './components/TrangChu/TrangChu';
 import { LoginForm } from './components/Login/login';
 import { RegisterForm } from './components/Register/register';
+import  { TrangMoHinh }  from './components/TrangMoHinh/TrangMoHinh';
 interface Props {
   className?: string;
 }
@@ -21,6 +22,7 @@ export const App: FC<Props> = memo(function App(props = {}) {
           <Route path="/model" element = {<TrangChu/>}/>
           <Route path="/login" element={<LoginForm />} />
           <Route path="/register" element={<RegisterForm/>}/>
+          <Route path="/TrangMoHinh" element = {TrangMoHinh}/>
         </Routes>
       </Router>
     </div>
