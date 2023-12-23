@@ -2,6 +2,8 @@ import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import TrangChu from "./components/TrangChu/TrangChu"
+import { RegisterForm } from "./components/Register/register";
+import { LoginForm } from "./components/Login/login";
 
 const router = createBrowserRouter([
     {
@@ -14,15 +16,15 @@ const router = createBrowserRouter([
             },
             {
                 path: '/login',
-                element: <TrangChu/>
+                element: <LoginForm />
             },
             {
                 path: '/contact',
-                element: <TrangChu/>
+                element: <TrangChu />
             },
             {
-            path: '/register',
-            element: <TrangChu/>
+                path: '/register',
+                element: <RegisterForm />
             }
         ]
     }

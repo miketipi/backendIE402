@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import type { FC, ReactNode } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import resets from '../_resets.module.css';
 import { _menu_TypeInlineOnlineStoreFal } from '../TrangChu/_menu_TypeInlineOnlineStoreFal/_menu_TypeInlineOnlineStoreFal';
@@ -43,8 +44,15 @@ interface Props {
     buttonText?: ReactNode;
   };
 }
+
 /* @figmaId 2:2059 */
 export const Header: FC<Props> = memo(function Header(props = {}) {
+  const navigate = useNavigate();
+
+  function handleMenuItemClick(path: string) {
+    navigate(path);
+  }
+
   return (
     <button
       className={`${resets.storybrainResets} ${props.classes?.root || ''} ${props.className || ''} ${classes.root}`}
@@ -66,11 +74,39 @@ export const Header: FC<Props> = memo(function Header(props = {}) {
             menuItem4: props.hide?.menuItem2,
           }}
           text={{
-            menuItem: props.text?.menuItem || <div className={classes.menuItem}>Trang chủ</div>,
-            menuItem2: props.text?.menuItem2 || <div className={classes.menuItem2}>Mô hình 3D</div>,
-            menuItem3: props.text?.menuItem3 || <div className={classes.menuItem3}>Liên hệ</div>,
+            menuItem: (
+              <div
+                className={classes.menuItem}
+                onClick={() => handleMenuItemClick('/')}
+              >
+                Trang chủ
+              </div>
+            ),
+            menuItem2: (
+              <div
+                className={classes.menuItem2}
+                onClick={() => handleMenuItemClick('/model')}
+              >
+                Mô hình 3D
+              </div>
+            ),
+            menuItem3: (
+              <div
+                className={classes.menuItem3}
+                onClick={() => handleMenuItemClick('/contact')}
+              >
+                Liên hệ
+              </div>
+            ),
             menuItem4: <div className={classes.menuItem4}></div>,
-            menuItem5: props.text?.menuItem4 || <div className={classes.menuItem5}>Báo cáo sửa chữa</div>,
+            menuItem5: (
+              <div
+                className={classes.menuItem5}
+                onClick={() => handleMenuItemClick('/repair-report')}
+              >
+                Báo cáo sửa chữa
+              </div>
+            ),
           }}
         />
         <Button_StyleFilledSizeMBrand
@@ -78,7 +114,14 @@ export const Header: FC<Props> = memo(function Header(props = {}) {
             iconJamIconsOutlineLogosPlus: true,
           }}
           text={{
-            buttonText: props.text?.buttonText || <div className={classes.buttonText}>Đăng nhập</div>,
+            buttonText: (
+              <div
+                className={classes.buttonText}
+                onClick={() => handleMenuItemClick('/login')}
+              >
+                Đăng nhập
+              </div>
+            ),
           }}
         />
       </div>

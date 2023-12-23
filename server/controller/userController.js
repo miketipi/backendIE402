@@ -3,10 +3,25 @@ import User from '../model/user.js';
 class UserCtrl {
     async createUser(req, res) {
         try {
-            const { username, password, admin } = req.body;
-            const newUser = new User({ username, password, admin });
+            const { email, password, admin , phone, name } = req.body;
+            const newUser = new User({ email, password, admin, phone , name });
             const savedUser = await newUser.save();
             res.status(201).json(savedUser);
+        } catch (error) {
+            res.status(500).json({ error: error.message });
+        }
+    }
+
+    async loginUser(req, res) {
+        try {
+            const { email, password } = req.body;
+            const user = await User.findOne({ email, password });
+
+            if (!user) {
+                return res.status(401).json({ message: 'Invalid credentials' });
+            }
+
+            res.status(200).json({ message: 'Login successful', user });
         } catch (error) {
             res.status(500).json({ error: error.message });
         }
@@ -39,10 +54,10 @@ class UserCtrl {
     async updateUserById(req, res) {
         try {
             const userId = req.params.id;
-            const { username, password, admin } = req.body;
+            const { name, password, admin, phone, email } = req.body;
             const updatedUser = await User.findByIdAndUpdate(
                 userId,
-                { username, password, admin },
+                { name, password, admin, email, phone },
                 { new: true }
             );
 
@@ -73,4 +88,3 @@ class UserCtrl {
 }
 
 export default new UserCtrl();
-
