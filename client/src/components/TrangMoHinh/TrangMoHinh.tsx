@@ -148,8 +148,7 @@ export const TrangMoHinh = () => {
       })
       const view = new SceneView({
         container: mapRef.current as HTMLDivElement,
-        map : map,
-        //center: [105.83454927674805, 21.036947054908556],
+        map : map, 
         camera:{
             position: {x: 105.83454927674805, y: 21.036947054908556, z: 500},
             heading: 0,
