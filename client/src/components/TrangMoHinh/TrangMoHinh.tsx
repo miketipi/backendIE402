@@ -147,14 +147,14 @@ export const TrangMoHinh = () => {
         basemap :'topo-vector',
       })
       const view = new SceneView({
-        container: "viewDiv",
+        container: mapRef.current as HTMLDivElement,
         map : map,
-        center: [105.83454927674805, 21.036947054908556, 500],
-        /*camera:{
-            center: [105.83454927674805, 21.036947054908556, 500],
+        //center: [105.83454927674805, 21.036947054908556],
+        camera:{
+            position: {x: 105.83454927674805, y: 21.036947054908556, z: 500},
             heading: 0,
             tilt: 0,
-        }*/
+        }
       })
     }, []);
   
