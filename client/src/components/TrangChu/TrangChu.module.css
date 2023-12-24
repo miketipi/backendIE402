@@ -918,6 +918,24 @@
   text-align: center;
   align-items: center;
   flex-direction: column;
+  cursor: pointer;
+}
+.Octhem:hover {
+  color: #000;
+  font-size: 18px;
+  line-height: 32px;
+  font-weight: 600;
+  font-family: Oxanium, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  letter-spacing: 0.18px;
+  position: absolute;
+  left: 0;
+  top: -0.9873px;
+  width: 131px;
+  height: min-content;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
 }
 .h3SharedHosting__title {
   position: absolute;
