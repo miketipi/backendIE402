@@ -13,7 +13,7 @@ function Login() {
                 { email, password }
             );
             console.log(response.data);
-            if (response.status === 200 && response.data.message === 'Login successful' && response.data.admin) {
+            if (response.status === 200 && response.data.message === 'Login successful' && response.data.user.admin) {
                 console.log("Đăng nhập thành công");
                 alert("Đăng nhập thành công!");
                 navigate('/home');
