@@ -1,33 +1,32 @@
-import React from react;
-import MapView from "@arcgis/core/views/MapView";
-import Map from "@arcgis/core/Map";
-import { useEffect } from "react";
-const TrangMoHinh = () => {
+import React, { useEffect, useRef } from 'react';
+import EsriMap from "@arcgis/core/Map";
+import SceneView from "@arcgis/core/views/SceneView";
+const TrangMoHinh : React.FC = () => {
+  const mapRef = useRef<HTMLDivElement | null>(null);
 
-  // const mapDiv = useRef(null);
+  useEffect(() => {
+    if (mapRef.current) {
+      const map = new EsriMap({
+        basemap: "satellite",
+        ground: "world-elevation"
+      });
 
-  // useEffect(() => {
-  //   if (mapDiv.current) {
-  //     /**
-  //      * Initialize application
-  //      */
-  //     const webmap = new Map({
-  //       basemap: "dark-gray-vector"
-  //     });
+      new SceneView({
+        container: mapRef.current,
+        map: map,
+        camera: {
+          position: {
+            x: -118.80800,
+            y: 33.96100,
+            z: 2000
+          },
+          tilt: 75
+        }
+      });
+    }
+  }, []);
 
-  //     const view = new MapView({
-  //       container: mapDiv.current,
-  //       map: webmap, 
-  //       center: [105.83454927674805, 21.036947054908556, 500],
-  //       scale: 10000000 
-  //     });
-
-  //     return () => view && view.destroy()
-
-  //   }
-  // }, []);
-
-  return 
+  return <div ref={mapRef} style={{ width: '100%', height: '100%' }} />;
 };
 
 export default TrangMoHinh;
