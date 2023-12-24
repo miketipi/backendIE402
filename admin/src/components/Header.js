@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <header className="p-4 dark:bg-gray-800 dark:text-gray-100">
       <div className="container flex justify-between h-16 mx-auto">
-        <NavLink to="/" className="flex items-center p-2">
+        <NavLink to="/home" className="flex items-center p-2">
           <span className="text-2xl font-bold">KHÁM PHÁ LĂNG BÁC - ADMIN</span>
         </NavLink>
 
