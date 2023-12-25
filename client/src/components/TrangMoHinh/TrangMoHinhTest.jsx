@@ -10,6 +10,7 @@ import { CauThangPhaiRender } from "./data/CauthangPhai/CauThangPhaiRender.js";
 import { MaiLangBacRender } from "./data/MaiLangBac/roof.js";
 import { wallNextToStepRender } from "./data/WallNextToStep/wallNextToStepRender.js"*/
 import React, { useRef, useEffect, useState } from 'react';
+//import "https://js.arcgis.com/4.24/esri/themes/light/main.css"
 import Map from "@arcgis/core/Map.js";
 import MapView from "@arcgis/core/views/MapView.js";
 import WebMap from "@arcgis/core/WebMap.js";
@@ -41,11 +42,22 @@ export const TrangMoHinhTest = () => {
     const fetchArray = [
       fetch('http://localhost:4000/bodypolygon/all')
     ];
+
     const [responseBodyPolygon] = await Promise.all(
       fetchArray
     );
     bodyPolygonList = await responseBodyPolygon.json();
     console.log (bodyPolygonList);
+
+    var createGraphic = function (data) {
+      return new Graphic({
+        geometry: data,
+        symbol: data.symbol,
+        attributes: data,
+        popupTemplate: data.popupTemplate,
+      });
+    };
+
     for (let bodyPolygon of bodyPolygonList) {
       const geojson = {
         type: 'FeatureCollection',
@@ -130,8 +142,26 @@ export const TrangMoHinhTest = () => {
   //   })
   //view.popup.defaultPopupTemplateEnabled = true;
   // }, []);
+  // useEffect (() => {
+  //   const script = document.createElement('script');
+  //   script.scr = "https://js.arcgis.com/4.24/";
+  //   script.async = true;
+  //   document.body.appendChild(script);
+  // })
+  useEffect(() => {
+    const script = document.createElement('script');
   
+    script.src = "https://js.arcgis.com/4.24/";
+    script.async = true;
+  
+    document.body.appendChild(script);
+  
+    return () => {
+      document.body.removeChild(script);
+    }
+  }, []);
   return (
-    <div id="viewDiv" style={{ height: "100vh", width: "100%" }}></div>
+    <div id="viewDiv" style={{ height: "100vh", width: "100%" }}>
+    </div>
   );
 };
