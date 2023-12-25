@@ -4,6 +4,7 @@ import axios from 'axios';
 // import DeleteUserForm from '../components/User/DeleteUserForm.js';
 // import UpdateUserForm from '../components/User/UpdateUserForm.js';
 import CreateBodypolygonForm from '../components/BodyPolygon/CreateBodyPolygonForm';
+import DeleteBodyPolygonForm from '../components/BodyPolygon/DeleteBodyPolygonForm';
 const Bodypolygon = () => {
   const [bodypolygon, setBodypolygon] = useState([]);
 
@@ -71,6 +72,7 @@ const Bodypolygon = () => {
                   <td className="px-6 py-4">{bodypolygon.height || 'Not update'}</td>
                   <td className="px-6 py-4">{bodypolygon.face.coordinates.map(coord => `[${coord.join(',')}]`).join(', ')}</td>
                   <td className="flex space-x-4 px-6 py-4">
+                    <DeleteBodyPolygonForm id={bodypolygon._id}></DeleteBodyPolygonForm >
                   </td>
                 </tr>
               ))

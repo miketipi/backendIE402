@@ -23,9 +23,53 @@ import Mesh from "@arcgis/core/geometry/Mesh.js";
 import Point from "@arcgis/core/geometry/Point.js";
 import LayerList from "@arcgis/core/widgets/LayerList.js";
 
-
-
+interface data {
+  geometry : object,
+  symbol : string,
+  attributes : object,
+  popupTemplate : object
+}
 export const TrangMoHinh = () => {
+  let bodypolygonlist = [];
+  async function fetchpolygon() {
+    const fetchbp = await fetch('https://localhost4000/bodypolygon/all');
+    bodypolygonlist = await fetchbp.json();
+  }
+  fetchpolygon();
+  for (let bodyPolygon of bodypolygonlist) {
+    const geojson = {
+      type: 'FeatureCollection',
+      features: [
+        {
+          type: 'Feature',
+          properties: {
+            name: bodyPolygon.nameInfo,
+            height: bodyPolygon.heightInfo,
+          },
+          geometry: {
+            type: 'Polygon',
+            coordinates: [bodyPolygon.face.coordinates],
+          },
+          id: bodyPolygon._id,
+        },
+      ],
+    };
+
+    // create a new blob from geojson featurecollection
+    const blob = new Blob([JSON.stringify(geojson)], {
+      type: 'application/json',
+    });
+
+    // URL reference to the blob
+    const url = URL.createObjectURL(blob);
+  var createGraphic = function (data) {
+    return new Graphic({
+      geometry: data,
+      symbol: data.symbol,
+      attributes: data,
+      popupTemplate: data.popupTemplate,
+    });
+  };
     /*const foundationArr = foundation(
         Map,
         SceneView,
@@ -135,6 +179,7 @@ export const TrangMoHinh = () => {
         request
       );*/
     const mapRef = useRef<HTMLDivElement>(null);
+    const ref = useRef<HTMLHtmlElement>(null);
     const [view, setView] = useState<MapView | null>(null);
     const glResult1 = new GraphicsLayer({
       id: "glResult1",

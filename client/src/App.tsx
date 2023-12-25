@@ -10,6 +10,7 @@ import Repair_report from "./components/Repair_Report/repair_report";
 import { TrangMoHinh } from './components/TrangMoHinh/TrangMoHinh';
 import store from './store';
 import { Provider } from 'react-redux';
+import { MoHinh } from "./components/TrangMoHinh/MoHinh";
 interface Props {
   className?: string;
 }
@@ -29,7 +30,7 @@ export const App: FC<Props> = memo(function App(props = {}) {
             <Route path="/model" element={<External />} />
             <Route path="/login" element={<LoginForm />} />
             <Route path="/register" element={<RegisterForm />} />
-            <Route path="/TrangMoHinh" element={<TrangMoHinh />} />
+            <Route path="/TrangMoHinh" element={<MoHinh />} />
             <Route path="/repair-report" element={<Repair_report />} />
             <Route path="/register" element={<RegisterForm />} />
           </Routes>
