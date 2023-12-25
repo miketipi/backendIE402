@@ -6,6 +6,7 @@ const CreateUserForm = () => {
     const [showForm, setShowForm] = useState(false);
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
+    const [password, setPassword] = useState('');
     const [phone, setPhone] = useState('');
     const [role, setRole] = useState('user');
 
@@ -17,7 +18,6 @@ const CreateUserForm = () => {
         e.preventDefault();
 
         let admin = displayUserRole(role);
-        let password = 'KhamphaLangBac';
 
         const body = {
             email,
@@ -36,7 +36,7 @@ const CreateUserForm = () => {
         }
 
         setShowForm(false);
-        showSuccessToast('Tạo mới tài khoản thành công, mật khẩu mặc định là KhamphaLangBac, trang sẽ tải lại sau 3s!');
+        showSuccessToast('Tạo mới tài khoản thành công, trang sẽ tải lại sau 3s!');
         setTimeout(() => {
             window.location.reload();
         }, 3000);
@@ -92,6 +92,26 @@ const CreateUserForm = () => {
                                                             required
                                                             className="block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                                             onChange={(e) => setEmail(e.target.value)}
+                                                        />
+                                                    </div>
+                                                </div>
+
+                                                <div>
+                                                    <label
+                                                        htmlFor="type"
+                                                        className="block text-sm font-medium leading-6 text-gray-900"
+                                                    >
+                                                        Password
+                                                    </label>
+                                                    <div className="mt-2">
+                                                        <input
+                                                            id="password"
+                                                            name="password"
+                                                            type="password"
+                                                            autoComplete="password"
+                                                            required
+                                                            className="block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                                            onChange={(e) => setPassword(e.target.value)}
                                                         />
                                                     </div>
                                                 </div>

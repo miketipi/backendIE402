@@ -72,7 +72,7 @@ const UpdateUserForm = ({ id }) => {
                                 {/*header*/}
                                 <div className=" flex items-start justify-between rounded-t border-b border-solid border-slate-200 p-5">
                                     <h3 className="text-3xl font-semibold">
-                                        Create new user
+                                        Update user
                                     </h3>
                                 </div>
                                 {/*body*/}
@@ -102,6 +102,27 @@ const UpdateUserForm = ({ id }) => {
                                                             defaultValue={email}
                                                             className="block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                                             onChange={(e) => setEmail(e.target.value)}
+                                                        />
+                                                    </div>
+                                                </div>
+
+                                                <div>
+                                                    <label
+                                                        htmlFor="type"
+                                                        className="block text-sm font-medium leading-6 text-gray-900"
+                                                    >
+                                                        Password
+                                                    </label>
+                                                    <div className="mt-2">
+                                                        <input
+                                                            id="password"
+                                                            name="password"
+                                                            type="password"
+                                                            autoComplete="password"
+                                                            required
+                                                            defaultValue={password}
+                                                            className="block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                                            onChange={(e) => setPassword(e.target.value)}
                                                         />
                                                     </div>
                                                 </div>
