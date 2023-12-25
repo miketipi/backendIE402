@@ -1,6 +1,7 @@
 // src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Login from './pages/Login';
 import Header from './components/Header';
 import HomePage from './pages/HomePage';
 import User from './pages/User';
@@ -16,16 +17,33 @@ const App = () => {
   return (
     <Router>
       <div>
-        <Header />
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/User" element={<User />} />
-          <Route path="/DamageReport" element={<DamageReport />} />
-          <Route path="/EntityRepairStatus" element={<EntityRepairStatus />} />
-          <Route path="/BodyPolygon" element={<BodyPolygon />} />
-          <Route path="/MeshObject" element={<MeshObject />} />
+          <Route path="/" element={<Login />} />
+          <Route path="/home" element={<>
+            <Header />
+            <HomePage />
+          </>} />
+          <Route path="/User" element={<>
+            <Header />
+            <User />
+          </>} />
+          <Route path="/DamageReport" element={<>
+            <Header />
+            <DamageReport />
+          </>} />
+          <Route path="/EntityRepairStatus" element={<>
+            <Header />
+            <EntityRepairStatus />
+          </>} />
+          <Route path="/BodyPolygon" element={<>
+            <Header />
+            <BodyPolygon />
+          </>} />
+          <Route path="/MeshObject" element={<>
+            <Header />
+            <MeshObject />
+          </>} />
         </Routes>
-
         <ToastContainer />
       </div>
     </Router>

@@ -24,12 +24,14 @@ export class bodypolygoncontroller {
     }
     catch (error) {
       console.log('Error', error);
+      res.status(500).json({ error: 'Internal Server Error' });
       throw new Error('Something is wrong when get all body line');
     }
   }
   async addBodypolygon(req, res) {
     try {
       console.log('add bodypolygon');
+      console.log(req.body);
       const toado = [];
       const { coordinates, ...others } = req.body;
       for (let a of req.body.coordinates) {
@@ -50,6 +52,7 @@ export class bodypolygoncontroller {
       newBodyPolygon.save();
       res.json(newBodyPolygon);
     } catch (error) {
+      res.status(500).json({ error: 'Internal Server Error' });
       console.log('Error when create body Polygon', error);
     }
   }
@@ -57,6 +60,7 @@ export class bodypolygoncontroller {
     try {
       console.log("Delete bodypolygon by id");
       const { id } = req.params;
+      console.log(id);
       if (!id) {
         return res.status(400).json({ error: "Polygon ID is required for delete" });
       }

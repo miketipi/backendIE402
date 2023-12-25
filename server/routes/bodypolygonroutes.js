@@ -5,5 +5,5 @@ const router = Router();
 router.get('/all', bodypolygoncontroller.getAll);
 router.post('/new', bodypolygoncontroller.addBodypolygon);
 router.post('/newfromjson', bodypolygoncontroller.addBodypolygonFromJson);
-router.post('/delete/:id', bodypolygoncontroller.deletebodypolygonbyid);
+router.delete('/delete/:id', bodypolygoncontroller.deletebodypolygonbyid);
 export default router;
