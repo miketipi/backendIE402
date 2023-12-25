@@ -30,6 +30,7 @@ export class bodypolygoncontroller {
   async addBodypolygon(req, res) {
     try {
       console.log('add bodypolygon');
+      console.log(req.body);
       const toado = [];
       const { coordinates, ...others } = req.body;
       for (let a of req.body.coordinates) {

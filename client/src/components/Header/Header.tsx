@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { useState, useEffect, memo } from 'react';
 import type { FC, ReactNode } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -48,6 +48,21 @@ interface Props {
 /* @figmaId 2:2059 */
 export const Header: FC<Props> = memo(function Header(props = {}) {
   const navigate = useNavigate();
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [username, setUsername] = useState("");
+
+  useEffect(() => {
+    // Simulating a successful login
+    // You should replace this with your actual login logic
+    // For example, you can check if the user has a valid token in local storage
+    const login = () => {
+      setLoggedIn(true);
+      setUsername("John"); // Set the username here
+    };
+
+    // Call the login function after a delay to simulate an asynchronous login process
+    setTimeout(login, 2000);
+  }, []);
 
   function handleMenuItemClick(path: string) {
     navigate(path);
@@ -109,21 +124,27 @@ export const Header: FC<Props> = memo(function Header(props = {}) {
             ),
           }}
         />
-        <Button_StyleFilledSizeMBrand
-          hide={{
-            iconJamIconsOutlineLogosPlus: true,
-          }}
-          text={{
-            buttonText: (
-              <div
-                className={classes.buttonText}
-                onClick={() => handleMenuItemClick('/login')}
-              >
-                Đăng nhập
-              </div>
-            ),
-          }}
-        />
+        {loggedIn ? (
+          <div className={classes.buttonTextHello}>
+            Xin chào {username}
+          </div>
+        ) : (
+          <Button_StyleFilledSizeMBrand
+            hide={{
+              iconJamIconsOutlineLogosPlus: true,
+            }}
+            text={{
+              buttonText: (
+                <div
+                  className={classes.buttonText}
+                  onClick={() => handleMenuItemClick('/login')}
+                >
+                  Đăng nhập
+                </div>
+              ),
+            }}
+          />
+        )}
       </div>
     </button>
   );
