@@ -8,21 +8,21 @@ export type Repair = {
   IDAccount: string;
   IDBodyPolygon: string;
 };
-export default async function Repair_report() {
+export default function Repair_report() {
   const [content, setContent] = useState("");
   const [cause, setCause] = useState("");
 
-  const submit = async () => {
-    try {
-      const response = await axios.post<{ url: string; data:Repair  }>(
-        "http://localhost:4000/userControl/login",
-        { Date(){}, content,cause,'??'   ,'??' }
-      );
-    } catch (error: any) {
-      console.error(error);
-      throw error;
-    }
-  };
+  // const submit = async () => {
+  //   try {
+  //     const response = await axios.post<{ url: string; data:Repair  }>(
+  //       "http://localhost:4000/userControl/login",
+  //       { Date(){}, content,cause,'??'   ,'??' }
+  //     );
+  //   } catch (error: any) {
+  //     console.error(error);
+  //     throw error;
+  //   }
+  // };
 
   return (
     <div className="hero">
