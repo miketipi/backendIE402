@@ -12,17 +12,17 @@ export default function Repair_report() {
   const [content, setContent] = useState("");
   const [cause, setCause] = useState("");
 
-  // const submit = async () => {
-  //   try {
-  //     const response = await axios.post<{ url: string; data:Repair  }>(
-  //       "http://localhost:4000/userControl/login",
-  //       { Date(){}, content,cause,'??'   ,'??' }
-  //     );
-  //   } catch (error: any) {
-  //     console.error(error);
-  //     throw error;
-  //   }
-  // };
+  const submit = async () => {
+    try {
+      // const response = await axios.post<{ url: string; data:Repair  }>(
+      //   "http://localhost:4000/userControl/login",
+      //   { Date(){}, content,cause,'??'   ,'??' }
+      // );
+    } catch (error: any) {
+      console.error(error);
+      throw error;
+    }
+  };
 
   return (
     <div className="hero">
@@ -59,26 +59,3 @@ export default function Repair_report() {
     </div>
   );
 }
-
-// const damageReportSchema = new Schema({
-//     Date: {
-//         type: Date,
-//         required: true,
-//     },
-//     Content: {
-//         type: String,
-//         required: true,
-//     },
-//     Cause: {
-//         type: String,
-//         required: true,
-//     },
-//     IDAccount: {
-//         type: Schema.Types.ObjectId,
-//         ref: 'account',
-//     },
-//     IDBodyPolygon: {
-//         type: Schema.Types.ObjectId,
-//         ref: 'bodypolygon',
-//     },
-// }, {collection : 'damagereport'});
