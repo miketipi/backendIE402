@@ -8,8 +8,11 @@ import { Button_StyleFilledSizeMBrand } from '../TrangChu/Button_StyleFilledSize
 import { Logo_NameHeaderLogo } from '../TrangChu/Logo_NameHeaderLogo/Logo_NameHeaderLogo';
 import classes from './Header.module.css';
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux';
+import { logout } from '../../actions/authActions';
+import { RootState } from '../../store';
 
-interface Props { 
+interface Props {
   className?: string;
   classes?: {
     root?: string;
@@ -52,6 +55,14 @@ export const Header: FC<Props> = memo(function Header(props = {}) {
   function handleMenuItemClick(path: string) {
     navigate(path);
   }
+
+  const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate("/");
+  };
 
   return (
     <button
@@ -109,21 +120,39 @@ export const Header: FC<Props> = memo(function Header(props = {}) {
             ),
           }}
         />
-        <Button_StyleFilledSizeMBrand
-          hide={{
-            iconJamIconsOutlineLogosPlus: true,
-          }}
-          text={{
-            buttonText: (
-              <div
-                className={classes.buttonText}
-                onClick={() => handleMenuItemClick('/login')}
-              >
-                Đăng nhập
-              </div>
-            ),
-          }}
-        />
+        {isLoggedIn ? (
+          <Button_StyleFilledSizeMBrand
+            hide={{
+              iconJamIconsOutlineLogosPlus: true,
+            }}
+            text={{
+              buttonText: (
+                <div
+                  className={classes.buttonText}
+                  onClick={handleLogout}
+                >
+                  Đăng xuất
+                </div>
+              ),
+            }}
+          />
+        ) : (
+          <Button_StyleFilledSizeMBrand
+            hide={{
+              iconJamIconsOutlineLogosPlus: true,
+            }}
+            text={{
+              buttonText: (
+                <div
+                  className={classes.buttonText}
+                  onClick={() => handleMenuItemClick('/login')}
+                >
+                  Đăng nhập
+                </div>
+              ),
+            }}
+          />
+        )}
       </div>
     </button>
   );
