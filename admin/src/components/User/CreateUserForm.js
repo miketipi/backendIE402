@@ -57,7 +57,7 @@ const CreateUserForm = () => {
             {showForm && (
                 <>
                     <div className="fixed inset-0 z-20 flex items-center justify-center overflow-auto outline-none transition-all duration-200 focus:outline-none">
-                        <div className="relative mx-auto w-[400px] max-w-3xl">
+                        <div className="relative mx-auto w-[480px] max-w-3xl h-full">
                             {/*content*/}
                             <div className="relative flex w-full flex-col rounded-lg border-0 bg-white shadow-lg outline-none focus:outline-none">
                                 {/*header*/}

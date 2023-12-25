@@ -8,8 +8,10 @@ router.get('/all', damageReportController.getAll);
 
 router.post('/new', damageReportController.addDamageReport);
 
-router.put('/:reportId/update', damageReportController.updateDamageReport);
+router.put('/update/:reportId', damageReportController.updateDamageReport);
 
-router.delete('/:reportId/delete', damageReportController.deleteDamageReport);
+router.delete('/delete/:reportId', damageReportController.deleteDamageReport);
+
+router.get('/byID/:reportId', damageReportController.getbyID);
 
 export default router;
