@@ -22,10 +22,76 @@ import esriRequest from "@arcgis/core/request.js";
 import Mesh from "@arcgis/core/geometry/Mesh.js";
 import Point from "@arcgis/core/geometry/Point.js";
 import LayerList from "@arcgis/core/widgets/LayerList.js";
+import Symbol from "@arcgis/core/symbols/Symbol.js";
 
 
 
-export const TrangMoHinh = () => {
+export const TrangMoHinh = () =>  {
+  const mapRef = useRef<HTMLDivElement>(null);
+  const [view, setView] = useState<MapView | null>(null);
+  const glResult1 = new GraphicsLayer({
+    id: "glResult1",
+  });
+  const glResult2 = new GraphicsLayer({
+    id: "glResult2",
+  });
+  
+  const Gis = async () => {
+    let bodyPolygonList;
+    const fetchArray = [
+      fetch ('localhost:4000/bodypolygon/all')
+    ];
+    const [responseBodyPolygon] = await Promise.all (
+      fetchArray
+      );
+    bodyPolygonList = await responseBodyPolygon.json();
+    
+    for (let bodyPolygon of bodyPolygonList) {
+      const geojson ={
+        type :'FeatureCollection',
+        feature: [
+          {
+            type :'feature',
+            properties:{
+              name : bodyPolygon.nameInfo,
+              height: bodyPolygon.heightInfo,
+            },
+            geometry: {
+              type: 'Polygon',
+              coordinates: [bodyPolygon.face.coordinates],
+            },
+            id: bodyPolygon._id,
+          },
+        ],
+      };
+
+      const blob = new Blob([JSON.stringify(geojson)],{
+        type:'application/json',
+      });
+      const layers = [];
+      const url = URL.createObjectURL(blob);
+      const layer = new GeoJSONLayer ({
+        url,
+      });
+      const {height} = bodyPolygon;
+      layer.renderer= {
+        type: 'simple',
+        /*symbol : {
+          /*type: 'polygon-3d',
+          symbolLayers: [
+            {
+              type: bodyPolygon.type,
+              ...(height && {height}),
+              material: {
+                color: bodyPolygon.color,
+              },
+            },
+          ],*/
+        },
+      };
+      layers.push(layer);
+    }
+   
     /*const foundationArr = foundation(
         Map,
         SceneView,
@@ -134,20 +200,13 @@ export const TrangMoHinh = () => {
         Graphic,
         request
       );*/
-    const mapRef = useRef<HTMLDivElement>(null);
-    const [view, setView] = useState<MapView | null>(null);
-    const glResult1 = new GraphicsLayer({
-      id: "glResult1",
-    });
-    const glResult2 = new GraphicsLayer({
-      id: "glResult2",
-    });
     useEffect(() => {
       const map = new Map({
         basemap :'topo-vector',
       })
       const view = new SceneView({
-        container: mapRef.current as HTMLDivElement,
+        container: "viewDiv",
+        //mapRef.current as HTMLDivElement,
         map : map, 
         camera:{
             position: {x: 105.83454927674805, y: 21.036947054908556, z: 500},
@@ -156,9 +215,10 @@ export const TrangMoHinh = () => {
         }
       })
     }, []);
-  
-    return (
-      <div ref={mapRef} style={{ height: "100vh", width: "100%" }}></div>
-    );
-  };
+  }
+  Gis();
+  return (
+    <div ref= {mapRef} style={{ height: "100vh", width: "100%" }}></div>
+  );
+};
   
