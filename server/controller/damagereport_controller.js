@@ -14,6 +14,33 @@ class DamageReportController {
         }
     }
 
+    async getbyID(req, res) {
+        try {
+            console.log('Get damage report by ID');
+            const { reportId } = req.params;
+    
+            // Check if reportId is provided
+            if (!reportId) {
+                return res.status(400).json({ error: 'Report ID is required for retrieval' });
+            }
+    
+            // Find the damage report by ID and populate related information
+            const report = await DamageReport.findById(reportId)
+                .populate('IDAccount')  // Populate information from the 'Account' collection
+                .populate('IDBodyPolygon');  // Populate information from the 'BodyPolygon' collection
+    
+            // Check if the report exists
+            if (!report) {
+                return res.status(404).json({ error: 'Report not found' });
+            }
+    
+            res.json(report);
+        } catch (error) {
+            console.error('Error when getting damage report by ID', error);
+            res.status(500).json({ error: 'Internal Server Error' });
+        }
+    }
+
     async addDamageReport(req, res) {
         try {
             console.log('Add damage report');

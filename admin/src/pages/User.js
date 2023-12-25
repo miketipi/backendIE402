@@ -97,8 +97,8 @@ const User = () => {
                   <td className="px-6 py-4">{user.phone || 'Not update'}</td>
                   <td className="px-6 py-4">{displayUserRole(user.admin)}</td>
                   <td className="flex space-x-4 px-6 py-4">
-                    <DeleteUserForm id={user._id}></DeleteUserForm>
                     <UpdateUserForm id={user._id}></UpdateUserForm>
+                    <DeleteUserForm id={user._id}></DeleteUserForm>      
                   </td>
                 </tr>
               ))

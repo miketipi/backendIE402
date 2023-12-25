@@ -15,7 +15,7 @@ const damageReportSchema = new Schema({
     },
     IDAccount: {
         type: Schema.Types.ObjectId,
-        ref: 'account',
+        ref: 'User',
     },
     IDBodyPolygon: {
         type: Schema.Types.ObjectId,
