@@ -1,6 +1,6 @@
 import { memo } from "react";
 import type { FC } from "react";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Avatars_Size5ShapeRound } from "./Avatars_Size5ShapeRound/Avatars_Size5ShapeRound";
 import { ButtonMain_TypePrimarySizeStan } from "./ButtonMain_TypePrimarySizeStan/ButtonMain_TypePrimarySizeStan";
 import { CarouselButtons_TypeLeftStateD } from "./CarouselButtons_TypeLeftStateD/CarouselButtons_TypeLeftStateD";
@@ -121,15 +121,15 @@ interface Props {
 /* @figmaId 2:3432 */
 export const TrangChu: FC<Props> = memo(function TrangChu(props = {}) {
   const [expanded, setExpanded] = React.useState<string | false>(false);
-  const [user, setUser] = React.useState('');
+  const [user, setUser] = React.useState("");
   const navigate = useNavigate();
   const handleChange =
     (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
       setExpanded(isExpanded ? panel : false);
     };
-    const nav = ()=>{
-      navigate("/Login");
-    }
+  const nav = () => {
+    navigate("/Login");
+  };
   return (
     <div className={`${classes.root}`}>
       <div className={classes.gioiThieuVeLangBac}>Giới thiệu về Lăng Bác</div>
@@ -356,19 +356,40 @@ export const TrangChu: FC<Props> = memo(function TrangChu(props = {}) {
         <RegularButton_TypePrimarySizeL2
           className={classes.regularButton}
           text={{
-            buttonLabel: <div className={classes.buttonLabel}>Thời gian</div>,
+            buttonLabel: (
+              <a
+                href="https://smiletravel.com.vn/lich-va-gio-mo-cua-don-khach-den-vieng-lang-bac-nam-2023-moi-nhat/"
+                className={classes.buttonLabel}
+              >
+                Thời gian
+              </a>
+            ),
           }}
         />
         <RegularButton_TypePrimarySizeL2
           className={classes.regularButton2}
           text={{
-            buttonLabel: <a href="https://www.tripadvisor.com.vn/HotelsNear-g293924-d311064-Ho_Chi_Minh_Mausoleum-Hanoi.html" className={classes.buttonLabel}>Khách sạn</a>,
+            buttonLabel: (
+              <a
+                href="https://www.tripadvisor.com.vn/HotelsNear-g293924-d311064-Ho_Chi_Minh_Mausoleum-Hanoi.html"
+                className={classes.buttonLabel}
+              >
+                Khách sạn
+              </a>
+            ),
           }}
         />
         <RegularButton_TypePrimarySizeL2
           className={classes.regularButton3}
           text={{
-            buttonLabel: <div className={classes.buttonLabel2}>Lịch trình</div>,
+            buttonLabel: (
+              <a
+                href="https://dulichkhatvongviet.com/lich-mo-cua-lang-bac/"
+                className={classes.buttonLabel}
+              >
+                Lịch trình
+              </a>
+            ),
           }}
         />
       </div>
@@ -445,7 +466,11 @@ export const TrangChu: FC<Props> = memo(function TrangChu(props = {}) {
           menuItem2: <div className={classes.menuItem16}>Mô hình 3D</div>,
           menuItem3: <div className={classes.menuItem17}>Liên hệ</div>,
           menuItem4: <div className={classes.menuItem18}>Báo cáo sửa chữa</div>,
-          buttonText: <div onClick={nav} className={classes.buttonText2}>Đăng nhập</div>,
+          buttonText: (
+            <div onClick={nav} className={classes.buttonText2}>
+              Đăng nhập
+            </div>
+          ),
         }}
       />
       <div className={classes.image7}></div>
@@ -453,13 +478,6 @@ export const TrangChu: FC<Props> = memo(function TrangChu(props = {}) {
         <div className={classes.image9}></div>
         <div className={classes.frame7}>
           <div className={classes.divSharedHosting__right}>
-            <div className={classes.linkThmBtn}>
-              <div className={classes.div}></div>
-              <div className={classes.div2}></div>
-              <div className={classes.span}>
-                <div className={classes.OcThem}>Đọc thêm</div>
-              </div>
-            </div>
             <div className={classes.h3SharedHosting__title}>
               <div className={classes.nhungIeuNenBietTruocKhiThamQua}>
                 <div className={classes.textBlock}>
@@ -470,11 +488,12 @@ export const TrangChu: FC<Props> = memo(function TrangChu(props = {}) {
                 </div>
               </div>
               <div className={classes.langChuTichHoChiMinhConCoNhieu}>
-                Lăng Chủ tịch Hồ Chí Minh còn có nhiều tên khác là Lăng Bác Hồ,
-                Lăng Bác, Lăng Hồ Chủ Tịch. Đây là nơi đặt thi hài Chủ tịch Hồ
-                Chí Minh và là nơi để nhân dân cả nước cùng du khách quốc tế đến
-                viếng thăm vị lãnh tụ vĩ đại của dân tộc Việt Nam và danh nhân
-                văn hóa kiệt xuất của nhân loại.
+                Lưu ý khi đến lăng Bác, trang phục của bạn phải nghiêm túc và
+                lịch sự, không được mặc quần áo quá ngắn hoặc có tính chất phản
+                cảm. Nếu vi phạm thì bạn sẽ không được bảo vệ cho phép vào bên
+                trong. Ngoài ra, khi đã vào đến lăng Bác, không được gây ồn ào,
+                cần phải đi nhẹ, nói khẽ và đặc biệt là xếp hàng theo thứ tự,
+                không chen lấn, xô đẩy.
               </div>
             </div>
           </div>

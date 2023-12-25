@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { createContext, useState, useContext, ReactNode, FunctionComponent } from 'react';
 import "./style.css";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
@@ -6,19 +6,49 @@ import { Link } from 'react-router-dom';
 import { Footer } from "../Footer/Footer";
 import { Header } from "../Header/Header";
 import classes from "../TrangChu/TrangChu.module.css";
+import { useDispatch } from 'react-redux';
+import { login } from '../../actions/authActions';
+
+interface User {
+    email: string;
+    password: string;
+    phone: string;
+    admin: boolean;
+    name: string;
+    _id: string
+}
+interface UserContextProps {
+    user: User | null;
+    setUser: React.Dispatch<React.SetStateAction<User | null>>;
+}
+export const UserContext = createContext<UserContextProps>({
+    user: null,
+    setUser: (value: React.SetStateAction<User | null>) => { } // Đây là hàm với một tham số
+});
+
+interface UserProviderProps {
+    children: ReactNode;
+}
+export const UserProvider: FunctionComponent<UserProviderProps> = ({ children }) => {
+    const [user, setUser] = useState<User | null>(null);
+
+    return (
+        <UserContext.Provider value={{ user, setUser }}>
+            {children}
+        </UserContext.Provider>
+    );
+};
 
 export const LoginForm = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
+    const { setUser } = useContext(UserContext);
 
-    const nav = () => {
-        navigate("/Login");
-    }
-
+    const dispatch = useDispatch();
     const handleLogin = async () => {
         try {
-            const response = await axios.post<{ message: string }>(
+            const response = await axios.post<{ message: string, user: User }>(
                 "http://localhost:4000/userControl/login",
                 { email, password }
             );
@@ -27,6 +57,9 @@ export const LoginForm = () => {
                 console.log("Đăng nhập thành công");
                 alert("Đăng nhập thành công!");
                 navigate('/');
+                setUser(response.data.user);
+                console.log(response.data.user);
+                dispatch(login());
             } else {
                 console.error("Sai email hoặc mật khẩu");
                 alert("Đăng nhập không thành công! Vui lòng kiểm tra lại email và mật khẩu!");
@@ -39,6 +72,10 @@ export const LoginForm = () => {
                 console.error("Error:", error);
             }
         }
+    };
+
+    const nav = () => {
+        navigate("/Login");
     };
 
     return (
