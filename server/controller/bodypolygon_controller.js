@@ -21,13 +21,20 @@ export class bodypolygoncontroller {
           },
         })
         .lean();
-      console.log(list);
+      
       for (let bodypoly of list) {
         let coordinatesArray = bodypoly.face.coordinates;
         coordinatesArray = coordinatesArray.map(({ x, y, z }) => [x, y, z]);
         bodypoly.face.coordinates = coordinatesArray;
+        if(bodypoly.face_2)
+        {
+          let coordinatesArray1 = bodypoly.face_2.coordinates;
+          coordinatesArray1 = coordinatesArray1.map(({ x, y, z }) => [x, y, z]);
+          bodypoly.face_2.coordinates = coordinatesArray1;
+        }    
       }
       res.json(list);
+      console.log(list);
     }
     catch (error) {
       console.log('Error', error);
