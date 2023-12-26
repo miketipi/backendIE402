@@ -9,6 +9,7 @@ import { CotTruLangRender } from "./data/CotLangBac/CotTruLangRender.js";
 import { CauThangPhaiRender } from "./data/CauthangPhai/CauThangPhaiRender.js";
 import { MaiLangBacRender } from "./data/MaiLangBac/roof.js";
 import { wallNextToStepRender } from "./data/WallNextToStep/wallNextToStepRender.js"*/
+import { loadCss } from 'esri-loader';
 import React, { useRef, useEffect, useState } from 'react';
 import Map from "@arcgis/core/Map.js";
 import MapView from "@arcgis/core/views/MapView.js";
@@ -24,9 +25,10 @@ import Point from "@arcgis/core/geometry/Point.js";
 import LayerList from "@arcgis/core/widgets/LayerList.js";
 import axios from "axios";
 import { loadModules } from 'esri-loader';
-import   './MoHinh.module.css';
+// import   './MoHinh.module.css';
 let bodypolygonlist = [];
 const layerss = [];
+loadCss('https://js.arcgis.com/4.24/esri/themes/light/main.css');
 export const MoHinh = () => {
   // async function fetchpolygon() {
   //     let a;
@@ -223,23 +225,46 @@ export const MoHinh = () => {
           ];
 
           for (let bodyPolygon of bodyPolygonList) {
-              const geojson = {
-                  type: 'FeatureCollection',
-                  features: [
-                      {
-                          type: 'Feature',
-                          properties: {
-                              name: bodyPolygon.name,
-                              height: bodyPolygon.height,
-                          },
-                          geometry: {
-                              type: 'Polygon',
-                              coordinates: [bodyPolygon.face.coordinates],
-                          },
-                          id: bodyPolygon._id,
-                      },
-                  ],
-              };
+            let geojson;
+            if (!bodyPolygon.face_2) {
+                geojson = {
+                    type: 'FeatureCollection',
+                    features: [
+                        {
+                            type: 'Feature',
+                            properties: {
+                                name: bodyPolygon.name,
+                                height: bodyPolygon.height,
+                            },
+                            geometry: {
+                                type: 'Polygon',
+                                coordinates: [bodyPolygon.face.coordinates],
+                            },
+                            id: bodyPolygon._id,
+                        },
+                    ],
+                };
+                // console.log(geojson);
+            } else {
+                geojson = {
+                    type: 'FeatureCollection',
+                    features: [
+                        {
+                            type: 'Feature',
+                            properties: {
+                                name: bodyPolygon.name,
+                                height: bodyPolygon.height,
+                            },
+                            geometry: {
+                                type: 'Polygon',
+                                coordinates: [bodyPolygon.face.coordinates , bodyPolygon.face_2.coordinates],
+                            },
+                            id: bodyPolygon._id,
+                        },
+                    ],
+                };
+                 console.log(geojson);
+            }
 
               // create a new blob from geojson featurecollection
               const blob = new Blob([JSON.stringify(geojson)], {
@@ -311,8 +336,6 @@ export const MoHinh = () => {
     // }, [layerss]);
     // fetchpolygon();
     return (
-
-        <div id='viewDiv' style={{ height: "100vh", width: "100%" }}></div>
-  
+        <div id='viewDiv' style={{  height: "100vh", width: "100%" }}></div>
     );
   };
