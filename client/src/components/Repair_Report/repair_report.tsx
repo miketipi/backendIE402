@@ -35,18 +35,9 @@ export default function Repair_report() {
       throw error;
     }
   };
-  // StartDate,
-  // FinishDate,
-  // Type,
-  // RepairReason,
-  // bodypolygon,
-  // user,
-
   return (
     <div className="hero">
-      <video autoPlay loop muted plays-inline className="back-video">
-        <source src="../../../public/assets/video.mp4" />
-      </video>
+      <h3>Nhập thông tin bạn muốn phản ánh tại đây</h3>
       <form action="" className="content">
         <div>
           <label htmlFor="content">Content</label>
