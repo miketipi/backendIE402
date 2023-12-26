@@ -1,6 +1,10 @@
 import { useState } from "react";
 import "./style.css";
 import axios from "axios";
+import { useContext } from "react";
+import { UserContext } from "../Login/login";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
 export type Repair = {
   Date: Date;
   Content: string;
@@ -11,18 +15,32 @@ export type Repair = {
 export default function Repair_report() {
   const [content, setContent] = useState("");
   const [cause, setCause] = useState("");
-
+  const a = useSelector((state: RootState) => state.auth.isLoggedIn);
+  console.log("isloggin:", a);
   const submit = async () => {
     try {
-      // const response = await axios.post<{ url: string; data:Repair  }>(
-      //   "http://localhost:4000/userControl/login",
-      //   { Date(){}, content,cause,'??'   ,'??' }
-      // );
+      const newRepair: Repair = {
+        Date: new Date(),
+        Content: content,
+        Cause: cause,
+        IDAccount: "??",
+        IDBodyPolygon: "??",
+      };
+      const response = await axios.post<{ url: string; data: Repair }>(
+        "http://localhost:4000/userControl/login",
+        newRepair
+      );
     } catch (error: any) {
       console.error(error);
       throw error;
     }
   };
+  // StartDate,
+  // FinishDate,
+  // Type,
+  // RepairReason,
+  // bodypolygon,
+  // user,
 
   return (
     <div className="hero">
