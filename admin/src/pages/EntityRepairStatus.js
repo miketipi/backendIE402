@@ -1,8 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { format } from "date-fns";
+import UpdateEntityRepair from "../components/EntityRepairStatus/UpdateEntityRepairform";
 const EntityRepairStatus = () => {
-  const [count, setcount] = useState(1);
   const [entity, setentity] = useState([]);
   useEffect(() => {
     const getallentity = async () => {
@@ -17,18 +18,25 @@ const EntityRepairStatus = () => {
     };
 
     getallentity();
-  }, [count]);
+  }, []);
+  console.log(entity);
   const handleclick = async (id) => {
     try {
       const res = await axios.delete(
         `http://localhost:4000/entityrepairstatus/${id}/delete`
       );
-      setcount(count + 1);
     } catch (error) {
       console.error("Error fetching users:", error.message);
     }
+    setTimeout(() => {
+      window.location.reload();
+    }, 3000);
   };
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return format(date, "dd/MM/yyyy");
+  };
   return (
     <div className="h-screen flex flex-col items-center justify-start gap-8 p-10">
       <h3 className="font-bold text-xl">Thông tin phản ánh từ khách hàng</h3>
@@ -39,7 +47,7 @@ const EntityRepairStatus = () => {
               #
             </th>
             <th scope="col" className="px-6 py-3">
-              User name
+              User repaired
             </th>
             <th scope="col" className="px-6 py-3">
               Type
@@ -51,6 +59,12 @@ const EntityRepairStatus = () => {
               Poligon
             </th>
             <th scope="col" className="px-6 py-3">
+              Start date
+            </th>
+            <th scope="col" className="px-6 py-3">
+              Finish date
+            </th>
+            <th scope="col" className="px-6 py-3">
               Action
             </th>
           </tr>
@@ -59,21 +73,24 @@ const EntityRepairStatus = () => {
           {entity.length > 0 ? (
             entity.map((value, index) => (
               <tr key={index}>
-                <td>{value._id}</td>
-                <td>user?</td>
+                <td>{index + 1}</td>
+                <td>{value.user.name}</td>
                 <td>{value.Type}</td>
                 <td>{value.RepairReason}</td>
-                <td>{value.bodypolygon}</td>
+                <td>{value.bodypolygon.name}</td>
+                <td>{formatDate(value.StartDate)}</td>
+                <td>{formatDate(value.FinishDate)}</td>
                 <td>
                   <p>
                     <button
                       className="p-1 bg-red-300 rounded-xl"
                       onClick={() => {
-                        handleclick(value._id);
+                        handleclick();
                       }}
                     >
                       delete
                     </button>
+                    {/* <UpdateEntityRepair id={value._id}></UpdateEntityRepair> */}
                   </p>
                 </td>
               </tr>
