@@ -18,7 +18,7 @@ const entityRepairStatusSchema = new Schema ({
         required : true
     },
     bodypolygon: {type : Schema.Types.ObjectId, ref: 'bodypolygon'},
-    user: {type : Schema.Types.ObjectId, ref: 'user'},
+    user: {type : Schema.Types.ObjectId, ref: 'users'},
 }, {collection : 'entityrepairstatus'});
 const entityRepairStatus = mongoose.model('entityrepairstatus', entityRepairStatusSchema);
 export default entityRepairStatus;

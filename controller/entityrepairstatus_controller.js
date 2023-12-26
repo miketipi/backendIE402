@@ -57,19 +57,19 @@ export class entityrepairstatuscontroller{
                 return res.status(400).send({message: 'EntityRepairStatus ID is required'});
             }
             const {StartDate, FinishDate, Type, RepairReason, bodypolygon, user} = req.body;
-            const entityrepairstatus = await entityrepairstatus.findById(id)
-            if(entityrepairstatus){
-                entityrepairstatus.StartDate = StartDate;
-                entityrepairstatus.FinishDate = FinishDate;
-                entityrepairstatus.Type = Type;
-                entityrepairstatus.RepairReason = RepairReason;
-                entityrepairstatus.bodypolygon = bodypolygon;
-                entityrepairstatus.user = user;
-            } else {
-                return res.status(400).send({message: 'EntityRepairStatus not found'});
+            const updatedEntityRepairStatus = await entityrepairstatus.findByIdAndUpdate(id, {
+                StartDate,
+                FinishDate,
+                Type,
+                RepairReason,
+                bodypolygon,
+                user
+            }, {new: true});
+            
+            if(!updatedEntityRepairStatus){
+                return res.status(404).send({message: 'EntityRepairStatus not found'});
             }
 
-            const updatedEntityRepairStatus = await entityrepairstatus.save();
             res.json(updatedEntityRepairStatus);
         } catch (error) {
             console.log('Error', error);
