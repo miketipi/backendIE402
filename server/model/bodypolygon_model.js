@@ -11,6 +11,7 @@ const bodyPolygonSchema = new Schema ({
     material : String,
     fixday : Date,
     face : {type : Schema.Types.ObjectId, ref: 'face'},
+    face_2: {type : Schema.Types.ObjectId, ref: 'face'},
 }, {collection : 'bodypolygon'});
 const bodypolygon = mongoose.model('bodypolygon', bodyPolygonSchema);
 export default bodypolygon;

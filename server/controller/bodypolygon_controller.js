@@ -13,6 +13,13 @@ export class bodypolygoncontroller {
             select: { _id: 0, x: 1, y: 1, z: 1 }
           },
         })
+        .populate({
+          path: 'face_2',
+          populate: {
+            path: 'coordinates',
+            select: { _id: 0, x: 1, y: 1, z: 1 }
+          },
+        })
         .lean();
       console.log(list);
       for (let bodypoly of list) {
