@@ -1,22 +1,24 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import axios from "axios";
-import { format } from "date-fns";
-import UpdateEntityRepair from "../components/EntityRepairStatus/UpdateEntityRepairform";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { format } from 'date-fns';
+import CreateERSForm from '../components/EntityRepairStatus/CreateERSForm.js';
+import UpdateERSForm from '../components/EntityRepairStatus/UpdateERSForm.js';
+import DeleteERSForm from '../components/EntityRepairStatus/DeleteERSForm.js';
+
 const EntityRepairStatus = () => {
-  const [entity, setentity] = useState([]);
+  const [repairStatusList, setRepairStatusList] = useState([]);
+
   useEffect(() => {
-    const getallentity = async () => {
+    const getAllEntityRepairStatus = async () => {
       try {
-        const res = await axios.get(
-          "http://localhost:4000/entityrepairstatus/all"
-        );
-        setentity(res.data);
+        const res = await axios.get('http://localhost:4000/entityrepairstatus/all');
+        setRepairStatusList(res.data);
       } catch (error) {
-        console.error("Error fetching users:", error.message);
+        console.error('Error fetching entity repair status:', error.message);
       }
     };
 
+<<<<<<< HEAD
     getallentity();
 <<<<<<< HEAD
     console.log(entity);
@@ -37,77 +39,88 @@ const EntityRepairStatus = () => {
       window.location.reload();
     }, 3000);
   };
+=======
+    getAllEntityRepairStatus();
+  }, []);
+>>>>>>> 51212c7d3199de6eccec4421719a28996b11657d
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    return format(date, "dd/MM/yyyy");
+    return format(date, 'dd/MM/yyyy');
   };
+
   return (
-    <div className="h-screen flex flex-col items-center justify-start gap-8 p-10">
-      <h3 className="font-bold text-xl">Thông tin phản ánh từ khách hàng</h3>
-      <table className="table-zebra w-full text-left text-sm text-gray-500">
-        <thead className="bg-gray-50 text-xs uppercase text-gray-700">
-          <tr>
-            <th scope="col" className="px-6 py-3">
-              #
-            </th>
-            <th scope="col" className="px-6 py-3">
-              User repaired
-            </th>
-            <th scope="col" className="px-6 py-3">
-              Type
-            </th>
-            <th scope="col" className="px-6 py-3">
-              Repair reason
-            </th>
-            <th scope="col" className="px-6 py-3">
-              Poligon
-            </th>
-            <th scope="col" className="px-6 py-3">
-              Start date
-            </th>
-            <th scope="col" className="px-6 py-3">
-              Finish date
-            </th>
-            <th scope="col" className="px-6 py-3">
-              Action
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {entity.length > 0 ? (
-            entity.map((value, index) => (
-              <tr key={index}>
-                <td>{index + 1}</td>
-                <td>{value.user.name}</td>
-                <td>{value.Type}</td>
-                <td>{value.RepairReason}</td>
-                <td>{value.bodypolygon.name}</td>
-                <td>{formatDate(value.StartDate)}</td>
-                <td>{formatDate(value.FinishDate)}</td>
-                <td>
-                  <p>
-                    <button
-                      className="p-1 bg-red-300 rounded-xl"
-                      onClick={() => {
-                        handleclick();
-                      }}
-                    >
-                      delete
-                    </button>
-                    {/* <UpdateEntityRepair id={value._id}></UpdateEntityRepair> */}
-                  </p>
+    <section className="mt-6">
+      <div className="flex items-center justify-between">
+        <h2 className="text-3xl font-bold m-auto">Danh sách tình trạng sửa chữa</h2>
+        <CreateERSForm></CreateERSForm>
+      </div>
+
+      <div className="relative mt-4 overflow-x-auto shadow-md sm:rounded-lg">
+        <table className="table-zebra w-full text-left text-sm text-gray-500">
+          <thead className="bg-gray-50 text-xs uppercase text-gray-700">
+            <tr>
+              <th scope="col" className="px-6 py-3">
+                #
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Người phụ trách
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Kiểu
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Lý do sửa chữa
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Đối tượng
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Ngày bắt đầu
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Ngày kết thúc
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Operation
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {repairStatusList.length > 0 ? (
+              repairStatusList.map((status, index) => (
+                <tr
+                  key={status._id}
+                  className="border-b bg-white dark:border-gray-700 dark:bg-gray-900"
+                >
+                  <td className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white">
+                    {index + 1}
+                  </td>
+                  <td className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white">
+                    {status.user.email}
+                  </td>
+                  <td className="px-6 py-4">{status.Type}</td>
+                  <td className="px-6 py-4">{status.RepairReason}</td>
+                  <td className="px-6 py-4">{status.bodypolygon.name}</td>
+                  <td className="px-6 py-4">{formatDate(status.StartDate)}</td>
+                  <td className="px-6 py-4">{formatDate(status.FinishDate)}</td>
+                  <td className="flex space-x-4 px-6 py-4">
+                    <DeleteERSForm id={status._id}></DeleteERSForm>
+                    <UpdateERSForm id={status._id}></UpdateERSForm>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td className="px-6 py-4 text-center" colSpan="100%">
+                  No entity repair status available
                 </td>
               </tr>
-            ))
-          ) : (
-            <td className="px-6 py-4 text-center" colSpan="100%">
-              No report here
-            </td>
-          )}
-        </tbody>
-      </table>
-    </div>
+            )}
+          </tbody>
+        </table>
+      </div>
+    </section>
   );
 };
 

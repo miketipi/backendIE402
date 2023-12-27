@@ -40,11 +40,11 @@ export class entityrepairstatuscontroller {
     try {
       console.log("Get entityrepairstatus by id");
       const { id } = req.params;
-      const entityrepairstatus = await entityrepairstatus
+      const entityrepairstatusID = await entityrepairstatus
         .findById(id)
         .populate("bodypolygon")
         .populate("user");
-      res.json(entityrepairstatus);
+      res.json(entityrepairstatusID);
     } catch (error) {
       console.log("Error", error);
       res.status(500).send(error);
@@ -56,33 +56,31 @@ export class entityrepairstatuscontroller {
       console.log("Update entityrepairstatus by id");
       const { id } = req.params;
       if (!id) {
-        return res
-          .status(400)
-          .send({ message: "EntityRepairStatus ID is required" });
-      }
-      const { StartDate, FinishDate, Type, RepairReason, bodypolygon, user } =
-        req.body;
-      const entityrepairstatus = await entityrepairstatus.findById(id);
-      if (entityrepairstatus) {
-        entityrepairstatus.StartDate = StartDate;
-        entityrepairstatus.FinishDate = FinishDate;
-        entityrepairstatus.Type = Type;
-        entityrepairstatus.RepairReason = RepairReason;
-        entityrepairstatus.bodypolygon = bodypolygon;
-        entityrepairstatus.user = user;
-      } else {
-        return res
-          .status(400)
-          .send({ message: "EntityRepairStatus not found" });
+        return res.status(400).send({ message: "EntityRepairStatus ID is required" });
       }
 
-      const updatedEntityRepairStatus = await entityrepairstatus.save();
-      res.json(updatedEntityRepairStatus);
+      const { StartDate, FinishDate, Type, RepairReason, bodypolygon, user } = req.body;
+      const entityRepairStatus = await entityrepairstatus.findById(id);
+
+      if (entityRepairStatus) {
+        entityRepairStatus.StartDate = StartDate;
+        entityRepairStatus.FinishDate = FinishDate;
+        entityRepairStatus.Type = Type;
+        entityRepairStatus.RepairReason = RepairReason;
+        entityRepairStatus.bodypolygon = bodypolygon;
+        entityRepairStatus.user = user;
+
+        const updatedEntityRepairStatus = await entityRepairStatus.save();
+        res.json(updatedEntityRepairStatus);
+      } else {
+        return res.status(400).send({ message: "EntityRepairStatus not found" });
+      }
     } catch (error) {
       console.log("Error", error);
       res.status(500).send(error);
     }
   }
+
 
   async deleteEntityRepairStatusById(req, res) {
     try {
