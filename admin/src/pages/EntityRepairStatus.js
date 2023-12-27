@@ -17,6 +17,7 @@ const EntityRepairStatus = () => {
     };
 
     getallentity();
+    console.log(entity);
   }, [count]);
   const handleclick = async (id) => {
     try {
