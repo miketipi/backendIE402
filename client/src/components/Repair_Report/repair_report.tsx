@@ -18,30 +18,35 @@ export type Repair = {
 export default function Repair_report() {
   const [content, setContent] = useState("");
   const [cause, setCause] = useState("");
-  const a = useSelector((state: RootState) => state.auth.isLoggedIn);
-  console.log("isloggin:", a);
+
   const submit = async () => {
     try {
-      const newRepair: Repair = {
-        Date: new Date(),
-        Content: content,
-        Cause: cause,
-        IDAccount: "??",
-        IDBodyPolygon: "??",
-      };
-      const response = await axios.post<{ url: string; data: Repair }>(
-        "http://localhost:4000/userControl/login",
-        newRepair
+      const response = await axios.post(
+        "http://localhost:4000/damagereport/new", {
+          Date: Date.now,
+          content,
+          cause,
+          IDAccount: "tophucduy52@gmail.com",
+          IDBodyPolygon: "adada",
+        }
       );
+      if (response.status === 201){
+        console.log("Đăng ký thành công!");
+        alert("Đăng ký thành công!");
+      }
+      else {
+        console.error("Đăng ký không thành công!");
+    }
     } catch (error: any) {
       console.error(error);
       throw error;
     }
   };
+  
   return (
     <div className="hero">
       <h3>Nhập thông tin bạn muốn phản ánh tại đây</h3>
-      <form action="" className="content">
+      <form onSubmit={submit} className="content">
         <div>
           <label htmlFor="content">Content</label>
           <input
@@ -66,10 +71,10 @@ export default function Repair_report() {
             }}
           />
         </div>
-        <button>Submit</button>
+        <button onClick={submit} >Submit</button>
       </form>
       <Header
-                className={classes.desktopHorizontalLogoLeftNotLo}
+                className="desktopHorizontalLogoLeftNotLo"
                 hide={{
                     menuItem2: true,
                 }}

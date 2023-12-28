@@ -8,10 +8,10 @@
 
 .index .div-3 {
   background-color: #ffffff;
-  height: 1604px;
   overflow: hidden;
+  width: 1400px;
+  height: 100vh;
   position: relative;
-  width: 1440px;
 }
 
 .index .div-register-one {
