@@ -6,4 +6,6 @@ router.get('/all', bodypolygoncontroller.getAll);
 router.post('/new', bodypolygoncontroller.addBodypolygon);
 router.post('/newfromjson', bodypolygoncontroller.addBodypolygonFromJson);
 router.delete('/delete/:id', bodypolygoncontroller.deletebodypolygonbyid);
+router.get('/:id', bodypolygoncontroller.getbyID);
+// router.put('/update/:id', bodypolygoncontroller.updatebodypolygon);
 export default router;

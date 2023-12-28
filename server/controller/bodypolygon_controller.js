@@ -138,11 +138,76 @@ export class bodypolygoncontroller {
       res.status(500).json({ error: 'Internal server error' });
     }
   }
-// async update(req, res){
-//   try{
-//     const {id} = req.params;
-//     console.log('Update Body Polygon');
-//     const {coordinates, }
+  async getbyID(req, res) {
+    try {
+        console.log('Get bodypolygon by ID');
+        const { id } = req.params;
+
+        // Check if reportId is provided
+        if (!id) {
+            return res.status(400).json({ error: 'Bodypolygon ID is required for retrieval' });
+        }
+
+        // Find the damage report by ID and populate related information
+        const bodypolygonn = await bodypolygon.findById(id)
+          .populate({
+            path: 'face',
+            populate: {
+              path: 'coordinates',
+              select: { _id: 0, x: 1, y: 1, z: 1 }
+            },
+          })
+          .populate({
+            path: 'face_2',
+            populate: {
+              path: 'coordinates',
+              select: { _id: 0, x: 1, y: 1, z: 1 }
+            },
+          })
+          .lean();
+            let coordinatesArray = bodypolygonn.face.coordinates;
+            coordinatesArray = coordinatesArray.map(({ x, y, z }) => [x, y, z]);
+            bodypolygonn.face.coordinates = coordinatesArray;
+            if(bodypolygonn.face_2)
+            {
+              let coordinatesArray1 = bodypolygonn.face_2.coordinates;
+              coordinatesArray1 = coordinatesArray1.map(({ x, y, z }) => [x, y, z]);
+              bodypolygonn.face_2.coordinates = coordinatesArray1;
+            }    
+            if (!bodypolygonn) {
+              return res.status(404).json({ error: 'Report not found' });
+          }
+          res.json(bodypolygonn);
+    } catch (error) {
+        console.error('Error when getting bodypolygon by ID', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+
+// async updatebodypolygon(req, res) {
+//   try {
+//     console.log('update bodypolygon');
+//       const {id} = req.params;
+//       const toado = [];
+//       const { coordinates, ...others } = req.body;
+//       for (let a of req.body.coordinates) {
+//         const newnode = node({
+//           x: a.x,
+//           y: a.y,
+//           z: a.z,
+//         });
+//         await newnode.save();
+//         toado.push(newnode._id);
+//       }
+//       const newface = face({ coordinates: toado });
+//       newface.save();
+//       const a = bodypolygon.findByIdAndUpdate(id, {name, color, newface, height})
+//       if (a){
+//         res.json(a);
+//       }
+//   } catch (error) {
+//       console.error('Error when updating damage report', error);
+//       res.status(500).json({ error: 'Internal Server Error' });
 //   }
 // }
 }

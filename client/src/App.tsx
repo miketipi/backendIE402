@@ -27,10 +27,10 @@ export const App: FC<Props> = memo(function App(props = {}) {
             <Route path="/" element={<TrangChu />} />
             <Route path="/about" element={<TrangChu />} />
             <Route path="/contact" element={<TrangChu />} />
-            <Route path="/model" element={<External />} />
+            <Route path="/TrangMoHinh" element={<External />} />
             <Route path="/login" element={<LoginForm />} />
             <Route path="/register" element={<RegisterForm />} />
-            <Route path="/TrangMoHinh" element={<MoHinh />} />
+            <Route path="/model" element={<MoHinh />} />
             <Route path="/repair-report" element={<Repair_report />} />
             <Route path="/register" element={<RegisterForm />} />
           </Routes>
