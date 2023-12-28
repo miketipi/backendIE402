@@ -1,4 +1,4 @@
-import { useState, useEffect, memo } from 'react';
+import { useState, useEffect, memo, useContext } from 'react';
 import type { FC, ReactNode } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../../actions/authActions';
 import { RootState } from '../../store';
+import { UserContext } from '../Login/login';
 
 interface Props {
   className?: string;
@@ -51,21 +52,7 @@ interface Props {
 /* @figmaId 2:2059 */
 export const Header: FC<Props> = memo(function Header(props = {}) {
   const navigate = useNavigate();
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [username, setUsername] = useState("");
 
-  useEffect(() => {
-    // Simulating a successful login
-    // You should replace this with your actual login logic
-    // For example, you can check if the user has a valid token in local storage
-    const login = () => {
-      setLoggedIn(true);
-      setUsername("John"); // Set the username here
-    };
-
-    // Call the login function after a delay to simulate an asynchronous login process
-    setTimeout(login, 2000);
-  }, []);
 
   function handleMenuItemClick(path: string) {
     navigate(path);
@@ -73,6 +60,8 @@ export const Header: FC<Props> = memo(function Header(props = {}) {
 
   const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
   const dispatch = useDispatch();
+  const user = useSelector((state: RootState) => state.user);
+  console.log('user.....' ,user)
 
   const handleLogout = () => {
     dispatch(logout());
@@ -135,9 +124,9 @@ export const Header: FC<Props> = memo(function Header(props = {}) {
             ),
           }}
         />
-        {loggedIn ? (
+        {isLoggedIn ? (
           <div className={classes.buttonTextHello}>
-            Xin chào {username}
+            Xin chào {user.userName}
           </div>
         ) : (
           <Button_StyleFilledSizeMBrand
