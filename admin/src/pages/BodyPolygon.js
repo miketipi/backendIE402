@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-// import CreateUserForm from '../components/User/CreateUserForm.js'
-// import DeleteUserForm from '../components/User/DeleteUserForm.js';
-// import UpdateUserForm from '../components/User/UpdateUserForm.js';
+import UpdateBodyPolygon from '../components/BodyPolygon/UpdateBodyPolygon'
 import CreateBodypolygonForm from '../components/BodyPolygon/CreateBodyPolygonForm';
 import DeleteBodyPolygonForm from '../components/BodyPolygon/DeleteBodyPolygonForm';
 const Bodypolygon = () => {
@@ -28,12 +26,11 @@ const Bodypolygon = () => {
       <div className="flex items-center justify-between">
         <h2 className="text-3xl font-bold m-auto">Danh sách bodypolygon</h2>
         <CreateBodypolygonForm></CreateBodypolygonForm>
-        {/* Creat user btn * <CreateBodypolygonForm></CreateBodypolygonForm>/}
+
         
       </div>
 
       <div className="relative mt-4 overflow-x-auto shadow-md sm:rounded-lg">
-        {/* Dropdown to select role */}
 
         <table className="table-zebra w-full text-left text-sm text-gray-500">
           <thead className="bg-gray-50 text-xs uppercase text-gray-700">
@@ -52,6 +49,9 @@ const Bodypolygon = () => {
               </th>
               <th scope="col" className="px-6 py-3">
                 Coordinates
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Operation
               </th>
             </tr>
           </thead>
@@ -73,6 +73,7 @@ const Bodypolygon = () => {
                   <td className="px-6 py-4">{bodypolygon.face.coordinates.map(coord => `[${coord.join(',')}]`).join(', ')}</td>
                   <td className="flex space-x-4 px-6 py-4">
                     <DeleteBodyPolygonForm id={bodypolygon._id}></DeleteBodyPolygonForm >
+                    <UpdateBodyPolygon id={bodypolygon._id}></UpdateBodyPolygon>
                   </td>
                 </tr>
               ))
