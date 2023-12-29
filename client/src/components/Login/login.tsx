@@ -6,8 +6,9 @@ import { Link } from 'react-router-dom';
 import { Footer } from "../Footer/Footer";
 import { Header } from "../Header/Header";
 import classes from "../TrangChu/TrangChu.module.css";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../actions/authActions';
+import { setUser } from '../../reducer/userReducer';
 
 interface User {
     email: string;
@@ -43,7 +44,7 @@ export const LoginForm = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
-    const { setUser } = useContext(UserContext);
+    // const { setUser } = useContext(UserContext);
 
     const dispatch = useDispatch();
     const handleLogin = async () => {
@@ -57,8 +58,8 @@ export const LoginForm = () => {
                 console.log("Đăng nhập thành công");
                 alert("Đăng nhập thành công!");
                 navigate('/');
-                setUser(response.data.user);
-                console.log(response.data.user);
+                dispatch<any>(setUser(response.data.user));
+                // console.log(response.data.user);
                 dispatch(login());
             } else {
                 console.error("Sai email hoặc mật khẩu");

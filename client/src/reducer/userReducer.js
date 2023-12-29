@@ -1,3 +1,4 @@
+import { CleaningServices } from "@mui/icons-material";
 import {createSlice} from "@reduxjs/toolkit"
 import axios from 'axios';
 
@@ -12,8 +13,9 @@ const userReducer = createSlice({
     initialState,
     reducers: {
         setUser: (state,action)=>{
-            state.userId = action.payload.userId;
-            state.username = action.payload.username;
+            console.log(action.payload)
+            state.userId = action.payload._id;
+            state.userName = action.payload.name;
             state.admin = action.payload.admin;
             state.isLoad = true;
         },
@@ -22,8 +24,8 @@ const userReducer = createSlice({
             })
             .then(res=>{
                 if(res.status===200){
-                    state.userId = res.data.userId;
-                    state.username = res.data.username;
+                    state.userId = res.data._id;
+                    state.userName = res.data.name;
                     state.admin = res.data.admin;
                     state.isLoad = true;
                 }
@@ -36,5 +38,5 @@ const userReducer = createSlice({
     }
 });
 
-export const {setUser,loadUser} = userReducer.actions;
+export const {setUser, loadUser} = userReducer.actions;
 export default userReducer.reducer;
