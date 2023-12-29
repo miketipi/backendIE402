@@ -21,17 +21,16 @@ export class bodypolygoncontroller {
           },
         })
         .lean();
-      
+
       for (let bodypoly of list) {
         let coordinatesArray = bodypoly.face.coordinates;
         coordinatesArray = coordinatesArray.map(({ x, y, z }) => [x, y, z]);
         bodypoly.face.coordinates = coordinatesArray;
-        if(bodypoly.face_2)
-        {
+        if (bodypoly.face_2) {
           let coordinatesArray1 = bodypoly.face_2.coordinates;
           coordinatesArray1 = coordinatesArray1.map(({ x, y, z }) => [x, y, z]);
           bodypoly.face_2.coordinates = coordinatesArray1;
-        }    
+        }
       }
       res.json(list);
       console.log(list);
@@ -210,5 +209,124 @@ export class bodypolygoncontroller {
 //       res.status(500).json({ error: 'Internal Server Error' });
 //   }
 // }
+  async update(req, res) {
+    try {
+      console.log('Update Body Polygon');
+      const { id } = req.params;
+      const { coordinates, ...updateData } = req.body;
+
+      // Check if ID is provided
+      if (!id) {
+        return res.status(400).json({ error: 'Polygon ID is required for update' });
+      }
+
+      // Find the existing bodypolygon by ID
+      const existingBodyPolygon = await bodypolygon.findById(id);
+      if (!existingBodyPolygon) {
+        return res.status(404).json({ error: 'BodyPolygon not found' });
+      }
+
+      // Update node coordinates if provided
+      if (coordinates) {
+        // Delete existing coordinates
+        await node.deleteMany({ _id: { $in: existingBodyPolygon.face.coordinates } });
+
+        // Create and save new nodes
+        const updatedCoordinates = [];
+        for (const coord of coordinates) {
+          const newnode = new node({
+            x: coord.x,
+            y: coord.y,
+            z: coord.z,
+          });
+          await newnode.save();
+          updatedCoordinates.push(newnode._id);
+        }
+
+        // Update face with new coordinates
+        await face.findByIdAndUpdate(existingBodyPolygon.face._id, { coordinates: updatedCoordinates });
+      }
+
+      // Update other fields in bodypolygon
+      await bodypolygon.findByIdAndUpdate(id, updateData);
+
+      // Fetch the updated bodypolygon
+      const updatedBodyPolygon = await bodypolygon.findById(id)
+        .populate({
+          path: 'face',
+          populate: {
+            path: 'coordinates',
+            select: { _id: 0, x: 1, y: 1, z: 1 },
+          },
+        })
+        .populate({
+          path: 'face_2',
+          populate: {
+            path: 'coordinates',
+            select: { _id: 0, x: 1, y: 1, z: 1 },
+          },
+        })
+        .lean();
+
+      // Format coordinates
+      updatedBodyPolygon.face.coordinates = updatedBodyPolygon.face.coordinates.map(({ x, y, z }) => [x, y, z]);
+      if (updatedBodyPolygon.face_2) {
+        updatedBodyPolygon.face_2.coordinates = updatedBodyPolygon.face_2.coordinates.map(({ x, y, z }) => [x, y, z]);
+      }
+
+      res.json(updatedBodyPolygon);
+    } catch (error) {
+      console.log('Error when updating body polygon', error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  }
+
+  async getBodyPolygonById(req, res) {
+    try {
+      console.log("Get bodypolygon by ID");
+      const { id } = req.params;
+
+      // Check if ID is provided
+      if (!id) {
+        return res.status(400).json({ error: "Polygon ID is required" });
+      }
+
+      // Find the bodypolygon by ID
+      const bodyPolygon = await bodypolygon.findById(id)
+        .populate({
+          path: 'face',
+          populate: {
+            path: 'coordinates',
+            select: { _id: 0, x: 1, y: 1, z: 1 }
+          },
+        })
+        .populate({
+          path: 'face_2',
+          populate: {
+            path: 'coordinates',
+            select: { _id: 0, x: 1, y: 1, z: 1 }
+          },
+        })
+        .lean();
+
+      // If the bodypolygon is not found
+      if (!bodyPolygon) {
+        return res.status(404).json({ error: "BodyPolygon not found" });
+      }
+
+      // Format coordinates
+      bodyPolygon.face.coordinates = bodyPolygon.face.coordinates.map(({ x, y, z }) => [x, y, z]);
+      if (bodyPolygon.face_2) {
+        bodyPolygon.face_2.coordinates = bodyPolygon.face_2.coordinates.map(({ x, y, z }) => [x, y, z]);
+      }
+
+      res.json(bodyPolygon);
+      console.log(bodyPolygon);
+    } catch (error) {
+      console.log('Error', error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  }
+
 }
 export default new bodypolygoncontroller();
